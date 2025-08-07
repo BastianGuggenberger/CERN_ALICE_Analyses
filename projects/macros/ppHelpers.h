@@ -4,6 +4,7 @@ const int nelemsMax = 8;
 #include "ppDataItems.h"
 #include "ppDataItems.C"
 
+
 class rnMaps
 {
   public:
@@ -75,6 +76,7 @@ struct has_value_type<T, std::void_t<typename T::value_type>> : std::true_type {
 class ppConfiguration
 {
   public:
+  
     ppConfiguration(){};
 
     ppConfiguration(TString jfname)
@@ -131,7 +133,7 @@ class ppConfiguration
         return TV{};
        }
     }
-
+  
   private:
     rapidjson::Document doc;
 
@@ -343,7 +345,7 @@ class ppHelpers
     }
 
     // plot the default histograms
-    void plotHistograms(TCanvas* cv, TString annText, std::vector<TH1D*> &hs1d, std::vector<TH2D*> &hs2d, std::string pdfname)
+    void plotHistograms(TCanvas* cv, TString annText, std::vector<TH1D*> &hs1d, std::vector<TH2D*> &hs2d, std::string pdfname, bool print2d = true)
     {
       TLatex txt;
       txt.SetTextSize(0.03);
@@ -367,7 +369,8 @@ class ppHelpers
         txt.DrawLatexNDC(0.85,0.97,annText);
         cv->Update(); cv->SaveAs(pdfname.data());
       }  
-    
+      
+      if(print2d){
       // plot 2D histograms
       cv->SetLogy(false);
       cv->SetLogz(true);
@@ -376,7 +379,7 @@ class ppHelpers
         h->Draw("COLZ");
         txt.DrawLatexNDC(0.85,0.97,annText);
         cv->Update(); cv->SaveAs(pdfname.data());
-      }  
+      }}  
     }
 
     // is track compatible with electron hypothesis?
