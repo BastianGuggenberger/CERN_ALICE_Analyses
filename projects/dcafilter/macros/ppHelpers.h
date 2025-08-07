@@ -196,7 +196,7 @@ class ppHelpers
     ppHelpers(){};
 
     // some constants
-    int nbIVM = 1000;
+    int nbIVM = 4000;
     float bIVMmin = 0.;
     float bIVMmax = 5.;
     
@@ -349,16 +349,17 @@ class ppHelpers
     }
 
     // plot the default histograms
-    void plotHistograms(TCanvas* cv, TString annText, std::vector<TH1D*> &hs1d, std::vector<TH2D*> &hs2d, std::string pdfname)
+    void plotHistograms(TCanvas* cv, TString annText, std::vector<TH1D*> &hs1d, std::vector<TH2D*> &hs2d, std::string pdfname, double IVMmin, double IVMmax)
     {
       TLatex txt;
       txt.SetTextSize(0.03);
       txt.SetTextAlign(32);
 
       // display the 1D histograms
+
+      hs1d[1]->GetXaxis()->SetRangeUser(IVMmin,IVMmax);
+
       // linear scale
-
-
       cv->SetLogy(false);
       //loop for more plots
         hs1d[1]->Draw("HIST");

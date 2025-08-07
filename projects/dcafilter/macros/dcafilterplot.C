@@ -26,7 +26,7 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
   pph.getHistos(hs1d, hs2d);
 
   //load histograms
-  std::string histofilename = "histos_cutoff" + std::to_string(cutoff) + ".root";
+  std::string histofilename = "histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
   TFile histofile(histofilename.c_str(), "OPEN");
 
   int len_1 = hs1d.size();
@@ -51,7 +51,7 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
 
   // prepare canvas
   TCanvas *cv = new TCanvas();
-  std::string pdfname = "ppEvents_"+label+".pdf";
+  std::string pdfname = "pdfs/ppEvents_"+label+".pdf";
   cv->SaveAs((pdfname+"[").data());
 
   TLatex txt;
@@ -60,7 +60,7 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
 
   // plot histograms
   auto annText = (TString)label;
-  pph.plotHistograms(cv, annText, hs1d, hs2d, pdfname);
+  pph.plotHistograms(cv, annText, hs1d, hs2d, pdfname, IVMmin, IVMmax);
  
   // clean up
   cv->SaveAs((pdfname+"]").data());
@@ -71,7 +71,7 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
 void analysecutoffs(double IVMmin, double IVMmax){
   double startcutoff = 0.3;
   double stepsize = 0.15;
-  double n_steps = 1;
+  double n_steps = 14;
   double cutoff;
   for (int i=0; i<n_steps; i++){
     cutoff = startcutoff + i*stepsize;

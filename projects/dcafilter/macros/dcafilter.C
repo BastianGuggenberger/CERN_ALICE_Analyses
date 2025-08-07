@@ -38,6 +38,7 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
   // prepare histograms
   std::vector<TH1D*> hs1d;
   std::vector<TH2D*> hs2d;
+
   pph.getHistos(hs1d, hs2d);
 
   // prepare structures to hold variables as function of run number
@@ -150,7 +151,7 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
   }
 
   //safe data
-  std::string histofilename = "histos_cutoff" + std::to_string(cutoff) + ".root";
+  std::string histofilename = "histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   int len_1 = hs1d.size();

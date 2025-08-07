@@ -1,5 +1,7 @@
 #include <iostream>
-#include <typeinfo>
+#include "TChain.h"
+
+#include "ppDefinitions.h"
 
 void simplehistos(){
     std::string fname = "/home/ubuma/Projektarbeit/Projektarbeit_SMI/projects/macros/../LHC22_pass7_skimmed/DGAnalysisTree_0002.root";
@@ -18,14 +20,13 @@ void simplehistos(){
 
 //analyse TChain
 
-    int n = ch->getEntries();
+    int n = ch->GetEntries();
     
     //set necessary branches
-    int RunNumber;
-    ch->SetBranchAddress("fRunNumber", &RunNumber);
+    #include "ppBranchAssignment.h"
     
     for (int i = 0; i<n; i++){
-        ch->getEntry(i);
-        std::cout << "RunNumber: " << RunNumber; 
+        ch->GetEntry(i);
+        std::cout << "RunNumber: " << RunNumber << std::endl; 
     }
 }
