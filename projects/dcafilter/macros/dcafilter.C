@@ -174,9 +174,9 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
 
 
 void varycutoff(){
-  double startcutoff = 0.3;
-  double stepsize = 0.15;
-  double n_steps = 14;
+  double startcutoff = 0.10;
+  double stepsize = 0.10;
+  double n_steps = 2;
   double cutoff;
   std::string label;
   for (int i=0; i<n_steps; i++){
