@@ -10,19 +10,22 @@
 
 //---------------------------------------------------------
 // Databases:
-std::vector<int> databaseids = {0, 1};
+std::vector<int> databaseids = {6,0,1,2,3,4,7,8,5};
 //---------------------------------------------------------
 
 
 TChain* getChain(int databaseid){
-    std::string fnames = "testrootfile"+ std::to_string(databaseid) + ".txt";
+    std::string fnames = "rootfiles/rootfile"+ std::to_string(databaseid) + ".txt";
     std::ifstream infile(fnames);
 
     TChain* ch = new TChain("chain");
 
     std::string fname;
-    
-    while(std::getline(infile, fname)){
+    int bigcounter = 0;
+    while((std::getline(infile, fname))){
+
+        bigcounter += 1;
+        std::cout<< "DB"<< databaseid << ":  " << bigcounter << " rootfiles added" << std::endl;
 
         if(fname == "") continue;
 
@@ -37,6 +40,7 @@ TChain* getChain(int databaseid){
           if (!dname.starts_with("DF")) continue;
           
           auto tname = fname+"/"+std::string(((TKey*) key)->GetName())+"/O2dgfewtrack";
+
           ch->Add(tname.c_str());
         }
         ff.Close();
@@ -58,7 +62,9 @@ std::map<int, int>* runmap(int databaseid){
     std::map <int, int>* runs = new std::map <int, int>;
     for (int i=0; i<n; i++){
         ch->GetEntry(i);
-        
+        if ((i % 1000000) == 0 ){
+            std::cout << 100 * double(i)/double(n) << " % " << std::endl;
+        }
         // Does the key exist?
         if (runs->find(RunNumber) != runs->end()){
             //key exists
@@ -68,15 +74,21 @@ std::map<int, int>* runmap(int databaseid){
             (*runs)[RunNumber] = 1;
         }
     }
+
+    //safe runmap for safety
+    ofstream secure("runmaps/runmapdb"+std::to_string(databaseid)+".txt");
+    for (auto [key, value]: *runs){
+        secure << key << "," << value << std::endl;
+    }
     return runs;
 }
 
 void overlap(){
-    std::vector<std::map<int, int>*> runmaps; //vector containing the runmap of each single database
+    std::map<int, std::map<int, int>*> runmaps; //map containing the runmap of each single database as values and the databases as keys
     std::map<int,std::vector<int>> rundbs; //maps each run to the ids of databases containing this run
-    for (int i=0; i<databaseids.size() ; i++){
+    for (int i: databaseids){
         std::map<int, int>* currentmap = runmap(i);
-        runmaps.push_back(currentmap);
+        runmaps[i] = currentmap;
 
         for (auto [key, value]: *currentmap){
             if(rundbs.find(key)!=rundbs.end()){
@@ -87,19 +99,25 @@ void overlap(){
                 rundbs[key] =  dbscurrentrun;
             }
         }
-        std::cout << "database " << databaseids[i] << " done." << std::endl ;
+        std::cout << "database " << i << " done." << std::endl ;
     }
 
     //start analysis
     std::cout << std::endl << std::endl;
+
+    ofstream results("results/overlap.txt");
+
     for (auto [runid, dbs]: rundbs){
         if(dbs.size() > 1){
             //overlap existing !!
             std::cout << "overlap existing for run " << runid << " : " << std::endl;
-            for(int i=0; i<dbs.size(); i++){
-                std::cout << "DB " << dbs[i] << " : " << (*runmaps[dbs[i]])[runid] << "x" << std::endl;
+            results << "overlap existing for run " << runid << " : " << std::endl;
+            for(int i: dbs){
+                std::cout << "DB " << i << " : " << (*runmaps[i])[runid] << "x" << std::endl;
+                results << "DB " << i << " : " << (*runmaps[i])[runid] << "x" << std::endl;
             }
             std::cout << std::endl;
+            results << std::endl;
         }
     }
 }

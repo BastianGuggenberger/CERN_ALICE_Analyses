@@ -1,0 +1,2884 @@
+overlap existing for run 526968 : 
+DB 0 : 2497532x
+DB 3 : 247070x
+
+overlap existing for run 527015 : 
+DB 0 : 864120x
+DB 3 : 31344x
+
+overlap existing for run 527016 : 
+DB 0 : 5718740x
+DB 3 : 195589x
+
+overlap existing for run 527028 : 
+DB 0 : 3817994x
+DB 3 : 178149x
+
+overlap existing for run 527031 : 
+DB 0 : 587194x
+DB 3 : 30274x
+
+overlap existing for run 527033 : 
+DB 0 : 593713x
+DB 3 : 30949x
+
+overlap existing for run 527034 : 
+DB 0 : 3740152x
+DB 3 : 169447x
+
+overlap existing for run 527038 : 
+DB 0 : 4071415x
+DB 3 : 192717x
+
+overlap existing for run 527039 : 
+DB 0 : 3643676x
+DB 3 : 179699x
+
+overlap existing for run 527041 : 
+DB 0 : 16012635x
+DB 1 : 14083320x
+DB 3 : 694784x
+
+overlap existing for run 527057 : 
+DB 0 : 9116448x
+DB 1 : 9080202x
+DB 3 : 381808x
+
+overlap existing for run 527076 : 
+DB 0 : 1847771x
+DB 3 : 69580x
+
+overlap existing for run 527108 : 
+DB 0 : 365244x
+DB 3 : 7585x
+
+overlap existing for run 527109 : 
+DB 0 : 11173142x
+DB 1 : 10935223x
+DB 3 : 343162x
+
+overlap existing for run 527228 : 
+DB 0 : 18593476x
+DB 3 : 460827x
+
+overlap existing for run 527237 : 
+DB 0 : 6626734x
+DB 3 : 211939x
+
+overlap existing for run 527240 : 
+DB 0 : 6848560x
+DB 1 : 6918632x
+DB 3 : 234023x
+
+overlap existing for run 527259 : 
+DB 0 : 169640x
+DB 3 : 7895x
+
+overlap existing for run 527260 : 
+DB 0 : 2956781x
+DB 3 : 95385x
+
+overlap existing for run 527261 : 
+DB 0 : 596291x
+DB 3 : 22075x
+
+overlap existing for run 527262 : 
+DB 0 : 397961x
+DB 3 : 14862x
+
+overlap existing for run 527345 : 
+DB 0 : 212117x
+DB 3 : 9970x
+
+overlap existing for run 527347 : 
+DB 0 : 243564x
+DB 3 : 9381x
+
+overlap existing for run 527349 : 
+DB 0 : 674985x
+DB 3 : 22606x
+
+overlap existing for run 527446 : 
+DB 0 : 27181501x
+DB 3 : 710301x
+
+overlap existing for run 527518 : 
+DB 0 : 4152703x
+DB 3 : 132423x
+
+overlap existing for run 527523 : 
+DB 0 : 25807600x
+DB 3 : 756658x
+
+overlap existing for run 527690 : 
+DB 0 : 17727094x
+DB 3 : 538267x
+
+overlap existing for run 527694 : 
+DB 0 : 6030025x
+DB 3 : 229442x
+
+overlap existing for run 527731 : 
+DB 0 : 4277088x
+DB 3 : 200444x
+
+overlap existing for run 527734 : 
+DB 0 : 8765534x
+DB 3 : 286953x
+
+overlap existing for run 527736 : 
+DB 0 : 7183150x
+DB 3 : 264044x
+
+overlap existing for run 527821 : 
+DB 0 : 3807386x
+DB 3 : 120785x
+
+overlap existing for run 527825 : 
+DB 0 : 8913626x
+DB 3 : 280315x
+
+overlap existing for run 527826 : 
+DB 0 : 17824934x
+DB 3 : 510766x
+
+overlap existing for run 527828 : 
+DB 0 : 4814855x
+DB 3 : 158430x
+
+overlap existing for run 527848 : 
+DB 0 : 1445620x
+DB 3 : 48157x
+
+overlap existing for run 527850 : 
+DB 0 : 7635836x
+DB 1 : 7702420x
+DB 3 : 234912x
+
+overlap existing for run 527852 : 
+DB 0 : 9448313x
+DB 3 : 307820x
+
+overlap existing for run 527863 : 
+DB 0 : 15869129x
+DB 3 : 403548x
+
+overlap existing for run 527864 : 
+DB 0 : 1115865x
+DB 3 : 42511x
+
+overlap existing for run 527865 : 
+DB 0 : 2367206x
+DB 3 : 89783x
+
+overlap existing for run 527869 : 
+DB 0 : 4407818x
+DB 3 : 148956x
+
+overlap existing for run 527871 : 
+DB 0 : 10134669x
+DB 1 : 9400832x
+DB 3 : 278212x
+
+overlap existing for run 527895 : 
+DB 0 : 12272836x
+DB 1 : 12232391x
+DB 3 : 370481x
+
+overlap existing for run 527898 : 
+DB 0 : 3320200x
+DB 3 : 114362x
+
+overlap existing for run 527899 : 
+DB 0 : 10538974x
+DB 1 : 10274900x
+DB 3 : 316741x
+
+overlap existing for run 527902 : 
+DB 0 : 6290608x
+DB 3 : 201130x
+
+overlap existing for run 527963 : 
+DB 0 : 910772x
+DB 3 : 37905x
+
+overlap existing for run 527976 : 
+DB 0 : 20467431x
+DB 3 : 533057x
+
+overlap existing for run 527978 : 
+DB 0 : 2773736x
+DB 3 : 91327x
+
+overlap existing for run 527979 : 
+DB 0 : 6371043x
+DB 3 : 213610x
+
+overlap existing for run 528021 : 
+DB 0 : 861959x
+DB 3 : 42257x
+
+overlap existing for run 528026 : 
+DB 0 : 1083826x
+DB 3 : 52680x
+
+overlap existing for run 528036 : 
+DB 0 : 14426078x
+DB 3 : 442567x
+
+overlap existing for run 528093 : 
+DB 0 : 245744x
+DB 3 : 18158x
+
+overlap existing for run 528094 : 
+DB 0 : 592978x
+DB 3 : 21761x
+
+overlap existing for run 528097 : 
+DB 0 : 252136x
+DB 3 : 9743x
+
+overlap existing for run 528105 : 
+DB 0 : 1865360x
+DB 3 : 59577x
+
+overlap existing for run 528107 : 
+DB 0 : 14152761x
+DB 3 : 395998x
+
+overlap existing for run 528109 : 
+DB 0 : 1581368x
+DB 3 : 60868x
+
+overlap existing for run 528110 : 
+DB 0 : 1159426x
+DB 3 : 41316x
+
+overlap existing for run 528231 : 
+DB 0 : 667995x
+DB 3 : 23929x
+
+overlap existing for run 528232 : 
+DB 0 : 28242250x
+DB 3 : 593268x
+
+overlap existing for run 528233 : 
+DB 0 : 6300089x
+DB 3 : 176114x
+
+overlap existing for run 528263 : 
+DB 0 : 6233803x
+DB 3 : 175078x
+
+overlap existing for run 528266 : 
+DB 0 : 3225459x
+DB 3 : 79848x
+
+overlap existing for run 528292 : 
+DB 0 : 7464411x
+DB 1 : 7167889x
+DB 3 : 221154x
+
+overlap existing for run 528294 : 
+DB 0 : 2656056x
+DB 3 : 91027x
+
+overlap existing for run 528316 : 
+DB 0 : 2609098x
+DB 3 : 84723x
+
+overlap existing for run 528319 : 
+DB 0 : 5572395x
+DB 3 : 162988x
+
+overlap existing for run 528328 : 
+DB 0 : 4050948x
+DB 3 : 134186x
+
+overlap existing for run 528329 : 
+DB 0 : 2767197x
+DB 3 : 90642x
+
+overlap existing for run 528330 : 
+DB 0 : 307961x
+DB 3 : 11996x
+
+overlap existing for run 528332 : 
+DB 0 : 12733891x
+DB 3 : 361375x
+
+overlap existing for run 528336 : 
+DB 0 : 2007774x
+DB 3 : 68545x
+
+overlap existing for run 528347 : 
+DB 0 : 19551699x
+DB 3 : 482712x
+
+overlap existing for run 528359 : 
+DB 0 : 5468276x
+DB 3 : 173968x
+
+overlap existing for run 528379 : 
+DB 0 : 7225957x
+DB 3 : 206391x
+
+overlap existing for run 528381 : 
+DB 0 : 4862004x
+DB 3 : 159340x
+
+overlap existing for run 528461 : 
+DB 0 : 7520050x
+DB 1 : 6767495x
+
+overlap existing for run 528529 : 
+DB 0 : 128692x
+DB 3 : 4147x
+
+overlap existing for run 528531 : 
+DB 0 : 7177431x
+DB 1 : 7075818x
+
+overlap existing for run 528602 : 
+DB 0 : 196109x
+DB 3 : 7147x
+
+overlap existing for run 528604 : 
+DB 0 : 10781621x
+DB 3 : 340514x
+
+overlap existing for run 528617 : 
+DB 0 : 18176629x
+DB 3 : 522700x
+
+overlap existing for run 528781 : 
+DB 0 : 465283x
+DB 3 : 15167x
+
+overlap existing for run 528782 : 
+DB 0 : 458413x
+DB 3 : 18558x
+
+overlap existing for run 528783 : 
+DB 0 : 284351x
+DB 3 : 11276x
+
+overlap existing for run 528784 : 
+DB 0 : 10428348x
+DB 3 : 345511x
+
+overlap existing for run 528798 : 
+DB 0 : 3460889x
+DB 3 : 126498x
+
+overlap existing for run 528801 : 
+DB 0 : 5512264x
+DB 3 : 181725x
+
+overlap existing for run 529077 : 
+DB 0 : 469640x
+DB 3 : 21486x
+
+overlap existing for run 529078 : 
+DB 0 : 11159480x
+DB 3 : 376943x
+
+overlap existing for run 529084 : 
+DB 0 : 1165212x
+DB 3 : 50336x
+
+overlap existing for run 529088 : 
+DB 0 : 2643199x
+DB 3 : 106537x
+
+overlap existing for run 529115 : 
+DB 0 : 27745065x
+DB 3 : 653040x
+
+overlap existing for run 529116 : 
+DB 0 : 2865959x
+DB 3 : 100724x
+
+overlap existing for run 529117 : 
+DB 0 : 8305697x
+DB 3 : 284796x
+
+overlap existing for run 529128 : 
+DB 0 : 330225x
+DB 3 : 12342x
+
+overlap existing for run 529129 : 
+DB 0 : 9012989x
+DB 3 : 302468x
+
+overlap existing for run 529208 : 
+DB 0 : 758652x
+DB 3 : 40693x
+
+overlap existing for run 529209 : 
+DB 0 : 12030243x
+DB 3 : 553174x
+
+overlap existing for run 529210 : 
+DB 0 : 558147x
+DB 3 : 28178x
+
+overlap existing for run 529211 : 
+DB 0 : 10964565x
+DB 3 : 468478x
+
+overlap existing for run 529235 : 
+DB 0 : 645585x
+DB 3 : 47777x
+
+overlap existing for run 529237 : 
+DB 0 : 4438415x
+DB 3 : 210187x
+
+overlap existing for run 529242 : 
+DB 0 : 1016351x
+DB 3 : 53853x
+
+overlap existing for run 529248 : 
+DB 0 : 9126119x
+DB 3 : 422441x
+
+overlap existing for run 529252 : 
+DB 0 : 3672574x
+DB 3 : 174655x
+
+overlap existing for run 529270 : 
+DB 0 : 15335520x
+DB 3 : 469142x
+
+overlap existing for run 529306 : 
+DB 0 : 2290412x
+DB 3 : 83804x
+
+overlap existing for run 529317 : 
+DB 0 : 4748103x
+DB 3 : 162897x
+
+overlap existing for run 529320 : 
+DB 0 : 2996294x
+DB 3 : 110873x
+
+overlap existing for run 529324 : 
+DB 0 : 5392812x
+DB 3 : 168460x
+
+overlap existing for run 529338 : 
+DB 0 : 17045909x
+DB 3 : 447760x
+
+overlap existing for run 529341 : 
+DB 0 : 4501049x
+DB 3 : 145314x
+
+overlap existing for run 529450 : 
+DB 0 : 892168x
+DB 3 : 33712x
+
+overlap existing for run 529452 : 
+DB 0 : 2964587x
+DB 3 : 111503x
+
+overlap existing for run 529454 : 
+DB 0 : 3187328x
+DB 3 : 113238x
+
+overlap existing for run 529458 : 
+DB 0 : 7854930x
+DB 3 : 263249x
+
+overlap existing for run 529460 : 
+DB 0 : 3992280x
+DB 3 : 146706x
+
+overlap existing for run 529461 : 
+DB 0 : 567449x
+DB 3 : 21948x
+
+overlap existing for run 529462 : 
+DB 0 : 11921887x
+DB 3 : 396438x
+
+overlap existing for run 529542 : 
+DB 0 : 1257449x
+DB 3 : 38246x
+
+overlap existing for run 529552 : 
+DB 0 : 3573117x
+DB 3 : 118512x
+
+overlap existing for run 529554 : 
+DB 0 : 1127516x
+DB 3 : 41801x
+
+overlap existing for run 529662 : 
+DB 0 : 1621375x
+DB 3 : 63645x
+
+overlap existing for run 529663 : 
+DB 0 : 26005595x
+DB 3 : 660749x
+
+overlap existing for run 529664 : 
+DB 0 : 13605302x
+DB 3 : 309509x
+
+overlap existing for run 529674 : 
+DB 0 : 1880542x
+DB 3 : 46051x
+
+overlap existing for run 529675 : 
+DB 0 : 18901300x
+DB 3 : 436331x
+
+overlap existing for run 529690 : 
+DB 0 : 4627495x
+DB 3 : 135885x
+
+overlap existing for run 529691 : 
+DB 0 : 11615427x
+DB 3 : 311444x
+
+overlap existing for run 535069 : 
+DB 4 : 5879x
+DB 5 : 1539960x
+
+overlap existing for run 535084 : 
+DB 4 : 2820x
+DB 5 : 368956x
+
+overlap existing for run 535085 : 
+DB 4 : 2946x
+DB 5 : 444415x
+
+overlap existing for run 535087 : 
+DB 4 : 3453x
+DB 5 : 381077x
+
+overlap existing for run 535345 : 
+DB 4 : 10109x
+DB 5 : 1975839x
+
+overlap existing for run 535365 : 
+DB 4 : 4351x
+DB 5 : 295222x
+
+overlap existing for run 535475 : 
+DB 4 : 1191x
+DB 5 : 154015x
+
+overlap existing for run 535476 : 
+DB 4 : 2115x
+DB 5 : 117961x
+
+overlap existing for run 535478 : 
+DB 4 : 13891x
+DB 5 : 835117x
+
+overlap existing for run 535479 : 
+DB 4 : 2290x
+DB 5 : 120613x
+
+overlap existing for run 535480 : 
+DB 4 : 4961x
+DB 5 : 254261x
+
+overlap existing for run 535514 : 
+DB 4 : 762x
+DB 5 : 64950x
+
+overlap existing for run 535517 : 
+DB 4 : 4310x
+DB 5 : 331858x
+
+overlap existing for run 535525 : 
+DB 4 : 5879x
+DB 5 : 344386x
+
+overlap existing for run 535526 : 
+DB 4 : 28962x
+DB 5 : 1662810x
+
+overlap existing for run 535545 : 
+DB 4 : 34885x
+DB 5 : 2029939x
+
+overlap existing for run 535563 : 
+DB 4 : 2523x
+DB 5 : 153417x
+
+overlap existing for run 535566 : 
+DB 4 : 9499x
+DB 5 : 560666x
+
+overlap existing for run 535613 : 
+DB 6 : 682892x
+DB 4 : 14351x
+DB 5 : 927242x
+
+overlap existing for run 535621 : 
+DB 6 : 1608475x
+DB 4 : 29953x
+DB 5 : 2119400x
+
+overlap existing for run 535623 : 
+DB 6 : 494704x
+DB 4 : 14018x
+DB 5 : 712491x
+
+overlap existing for run 535624 : 
+DB 6 : 542011x
+DB 4 : 10397x
+DB 5 : 753396x
+
+overlap existing for run 535627 : 
+DB 6 : 949886x
+DB 4 : 27317x
+DB 5 : 1421111x
+
+overlap existing for run 535644 : 
+DB 6 : 1838121x
+DB 4 : 19182x
+DB 5 : 2410904x
+
+overlap existing for run 535645 : 
+DB 6 : 10625514x
+DB 4 : 103487x
+DB 5 : 14926166x
+
+overlap existing for run 535711 : 
+DB 6 : 489956x
+DB 4 : 11679x
+DB 5 : 684089x
+
+overlap existing for run 535716 : 
+DB 6 : 760750x
+DB 4 : 17589x
+DB 5 : 1080332x
+
+overlap existing for run 535721 : 
+DB 6 : 120241x
+DB 4 : 3561x
+DB 5 : 195597x
+
+overlap existing for run 535722 : 
+DB 4 : 36893x
+DB 5 : 2159172x
+
+overlap existing for run 535725 : 
+DB 6 : 162582x
+DB 4 : 3871x
+DB 5 : 227118x
+
+overlap existing for run 535941 : 
+DB 4 : 42206x
+DB 5 : 2270436x
+
+overlap existing for run 535964 : 
+DB 4 : 31600x
+DB 5 : 1638497x
+
+overlap existing for run 535966 : 
+DB 4 : 21433x
+DB 5 : 1232386x
+
+overlap existing for run 535983 : 
+DB 4 : 94842x
+DB 5 : 4159396x
+
+overlap existing for run 535999 : 
+DB 4 : 226672x
+DB 5 : 10942251x
+
+overlap existing for run 536020 : 
+DB 4 : 155290x
+DB 5 : 7490311x
+
+overlap existing for run 536025 : 
+DB 4 : 102606x
+DB 5 : 4780115x
+
+overlap existing for run 536055 : 
+DB 4 : 142305x
+DB 5 : 6222931x
+
+overlap existing for run 536106 : 
+DB 4 : 185970x
+DB 5 : 7445461x
+
+overlap existing for run 536108 : 
+DB 4 : 28809x
+DB 5 : 1019290x
+
+overlap existing for run 536176 : 
+DB 4 : 159909x
+DB 5 : 5947430x
+
+overlap existing for run 536199 : 
+DB 4 : 123536x
+DB 5 : 5091628x
+
+overlap existing for run 536235 : 
+DB 4 : 11740x
+DB 5 : 545965x
+
+overlap existing for run 536236 : 
+DB 4 : 21787x
+DB 5 : 1006618x
+
+overlap existing for run 536237 : 
+DB 4 : 22916x
+DB 5 : 1017821x
+
+overlap existing for run 536238 : 
+DB 4 : 103292x
+DB 5 : 4712891x
+
+overlap existing for run 536239 : 
+DB 4 : 49596x
+DB 5 : 2305079x
+
+overlap existing for run 536255 : 
+DB 4 : 6276x
+DB 5 : 447465x
+
+overlap existing for run 536257 : 
+DB 4 : 987x
+DB 5 : 126357x
+
+overlap existing for run 536261 : 
+DB 4 : 704x
+DB 5 : 47640x
+
+overlap existing for run 536262 : 
+DB 4 : 1375x
+DB 5 : 114871x
+
+overlap existing for run 536338 : 
+DB 4 : 2791x
+DB 5 : 194866x
+
+overlap existing for run 536339 : 
+DB 4 : 4540x
+DB 5 : 312841x
+
+overlap existing for run 536340 : 
+DB 4 : 1273x
+DB 5 : 118359x
+
+overlap existing for run 536343 : 
+DB 4 : 5888x
+DB 5 : 372855x
+
+overlap existing for run 536344 : 
+DB 4 : 451x
+DB 5 : 25620x
+
+overlap existing for run 536346 : 
+DB 4 : 1348x
+DB 5 : 102949x
+
+overlap existing for run 536370 : 
+DB 4 : 593x
+DB 5 : 1659689x
+
+overlap existing for run 536401 : 
+DB 4 : 9618x
+DB 5 : 597523x
+
+overlap existing for run 536402 : 
+DB 4 : 12235x
+DB 5 : 792895x
+
+overlap existing for run 536403 : 
+DB 4 : 12507x
+DB 5 : 824783x
+
+overlap existing for run 536416 : 
+DB 4 : 35817x
+DB 5 : 2425980x
+
+overlap existing for run 536487 : 
+DB 4 : 28591x
+DB 5 : 1923693x
+
+overlap existing for run 536488 : 
+DB 4 : 3485x
+DB 5 : 215777x
+
+overlap existing for run 536489 : 
+DB 4 : 41497x
+DB 5 : 2919197x
+
+overlap existing for run 536545 : 
+DB 4 : 15981x
+DB 5 : 1660057x
+
+overlap existing for run 536547 : 
+DB 4 : 28155x
+DB 5 : 1337307x
+
+overlap existing for run 536548 : 
+DB 4 : 38303x
+DB 5 : 1624942x
+
+overlap existing for run 536606 : 
+DB 4 : 6206x
+DB 5 : 777203x
+
+overlap existing for run 536607 : 
+DB 4 : 5088x
+DB 5 : 211784x
+
+overlap existing for run 536608 : 
+DB 4 : 5176x
+DB 5 : 230936x
+
+overlap existing for run 536609 : 
+DB 4 : 84664x
+DB 5 : 3955456x
+
+overlap existing for run 536610 : 
+DB 4 : 13232x
+DB 5 : 565618x
+
+overlap existing for run 536611 : 
+DB 4 : 13795x
+DB 5 : 580820x
+
+overlap existing for run 536612 : 
+DB 4 : 30403x
+DB 5 : 1355211x
+
+overlap existing for run 536613 : 
+DB 4 : 30648x
+DB 5 : 1338664x
+
+overlap existing for run 536663 : 
+DB 4 : 46377x
+DB 5 : 1413374x
+
+overlap existing for run 536683 : 
+DB 4 : 65277x
+DB 5 : 2050488x
+
+overlap existing for run 536685 : 
+DB 4 : 16195x
+DB 5 : 460220x
+
+overlap existing for run 536757 : 
+DB 4 : 67763x
+DB 5 : 1941060x
+
+overlap existing for run 536762 : 
+DB 4 : 34547x
+DB 5 : 832152x
+
+overlap existing for run 536774 : 
+DB 4 : 86114x
+DB 5 : 2378262x
+
+overlap existing for run 536790 : 
+DB 4 : 57942x
+DB 5 : 1456524x
+
+overlap existing for run 536822 : 
+DB 4 : 156504x
+DB 5 : 4369915x
+
+overlap existing for run 536839 : 
+DB 4 : 156158x
+DB 5 : 4691075x
+
+overlap existing for run 536842 : 
+DB 4 : 30025x
+DB 5 : 734562x
+
+overlap existing for run 536843 : 
+DB 4 : 59456x
+DB 5 : 1570359x
+
+overlap existing for run 536848 : 
+DB 4 : 230033x
+DB 5 : 5886432x
+
+overlap existing for run 536898 : 
+DB 4 : 178189x
+DB 5 : 3706926x
+
+overlap existing for run 536899 : 
+DB 4 : 29313x
+DB 5 : 619004x
+
+overlap existing for run 536906 : 
+DB 4 : 34477x
+DB 5 : 691212x
+
+overlap existing for run 536908 : 
+DB 4 : 59232x
+DB 5 : 1617773x
+
+overlap existing for run 536957 : 
+DB 4 : 61981x
+DB 5 : 1584072x
+
+overlap existing for run 536968 : 
+DB 4 : 35160x
+DB 5 : 771650x
+
+overlap existing for run 536969 : 
+DB 4 : 297160x
+DB 5 : 6620009x
+
+overlap existing for run 536971 : 
+DB 4 : 63653x
+DB 5 : 1049796x
+
+overlap existing for run 537274 : 
+DB 4 : 34871x
+DB 5 : 1498801x
+
+overlap existing for run 537276 : 
+DB 4 : 22286x
+DB 5 : 967161x
+
+overlap existing for run 537397 : 
+DB 4 : 7903x
+DB 5 : 369032x
+
+overlap existing for run 537401 : 
+DB 4 : 46132x
+DB 5 : 1658138x
+
+overlap existing for run 537411 : 
+DB 4 : 67264x
+DB 5 : 2575355x
+
+overlap existing for run 537425 : 
+DB 4 : 180913x
+DB 5 : 8085444x
+
+overlap existing for run 537426 : 
+DB 4 : 111063x
+DB 5 : 4940921x
+
+overlap existing for run 537447 : 
+DB 4 : 25014x
+DB 5 : 1435474x
+
+overlap existing for run 537448 : 
+DB 4 : 80533x
+DB 5 : 3547934x
+
+overlap existing for run 537449 : 
+DB 4 : 9626x
+DB 5 : 382977x
+
+overlap existing for run 537464 : 
+DB 4 : 177117x
+DB 5 : 7928069x
+
+overlap existing for run 537465 : 
+DB 4 : 49298x
+DB 5 : 2089713x
+
+overlap existing for run 537466 : 
+DB 4 : 34211x
+DB 5 : 1773024x
+
+overlap existing for run 537480 : 
+DB 4 : 46546x
+DB 5 : 2067678x
+
+overlap existing for run 537504 : 
+DB 4 : 165320x
+DB 5 : 4511097x
+
+overlap existing for run 537505 : 
+DB 4 : 24229x
+DB 5 : 407845x
+
+overlap existing for run 537509 : 
+DB 4 : 63816x
+DB 5 : 1865343x
+
+overlap existing for run 537511 : 
+DB 4 : 72006x
+DB 5 : 2147114x
+
+overlap existing for run 537531 : 
+DB 4 : 92909x
+DB 5 : 2766635x
+
+overlap existing for run 537546 : 
+DB 4 : 30531x
+DB 5 : 869598x
+
+overlap existing for run 537547 : 
+DB 4 : 225413x
+DB 5 : 7793388x
+
+overlap existing for run 537549 : 
+DB 4 : 140763x
+DB 5 : 6726894x
+
+overlap existing for run 537551 : 
+DB 4 : 15249x
+DB 5 : 641737x
+
+overlap existing for run 537553 : 
+DB 4 : 115961x
+DB 5 : 4357273x
+
+overlap existing for run 537594 : 
+DB 4 : 100205x
+DB 5 : 2096624x
+
+overlap existing for run 537602 : 
+DB 4 : 106696x
+DB 5 : 3978556x
+
+overlap existing for run 537605 : 
+DB 4 : 5732x
+DB 5 : 181654x
+
+overlap existing for run 537622 : 
+DB 4 : 23265x
+DB 5 : 791928x
+
+overlap existing for run 537623 : 
+DB 4 : 26308x
+DB 5 : 890907x
+
+overlap existing for run 537632 : 
+DB 4 : 68141x
+DB 5 : 2372460x
+
+overlap existing for run 537636 : 
+DB 4 : 116205x
+DB 5 : 4026888x
+
+overlap existing for run 537645 : 
+DB 4 : 81239x
+DB 5 : 3394153x
+
+overlap existing for run 537658 : 
+DB 4 : 41656x
+DB 5 : 1926728x
+
+overlap existing for run 537659 : 
+DB 4 : 220557x
+DB 5 : 10291048x
+
+overlap existing for run 537660 : 
+DB 4 : 97559x
+DB 5 : 4685101x
+
+overlap existing for run 537661 : 
+DB 4 : 14335x
+DB 5 : 608366x
+
+overlap existing for run 537734 : 
+DB 4 : 16188x
+DB 5 : 501557x
+
+overlap existing for run 537736 : 
+DB 4 : 138091x
+DB 5 : 4444698x
+
+overlap existing for run 537739 : 
+DB 4 : 98535x
+DB 5 : 3185288x
+
+overlap existing for run 537740 : 
+DB 4 : 67146x
+DB 5 : 2082608x
+
+overlap existing for run 537769 : 
+DB 4 : 13243x
+DB 5 : 461552x
+
+overlap existing for run 537770 : 
+DB 4 : 168855x
+DB 5 : 5307876x
+
+overlap existing for run 537822 : 
+DB 4 : 65545x
+DB 5 : 2220690x
+
+overlap existing for run 537825 : 
+DB 4 : 29662x
+DB 5 : 939681x
+
+overlap existing for run 537826 : 
+DB 4 : 181688x
+DB 5 : 5824879x
+
+overlap existing for run 537827 : 
+DB 4 : 67254x
+DB 5 : 1493251x
+
+overlap existing for run 537836 : 
+DB 4 : 59317x
+DB 5 : 1987911x
+
+overlap existing for run 537853 : 
+DB 4 : 142935x
+DB 5 : 4423896x
+
+overlap existing for run 537855 : 
+DB 4 : 84459x
+DB 5 : 2813675x
+
+overlap existing for run 537861 : 
+DB 4 : 40312x
+DB 5 : 695692x
+
+overlap existing for run 537864 : 
+DB 4 : 2412x
+DB 5 : 41275x
+
+overlap existing for run 537865 : 
+DB 4 : 4057x
+DB 5 : 73714x
+
+overlap existing for run 537867 : 
+DB 4 : 4833x
+DB 5 : 90759x
+
+overlap existing for run 537870 : 
+DB 4 : 18453x
+DB 5 : 532326x
+
+overlap existing for run 537893 : 
+DB 4 : 71930x
+DB 5 : 2071388x
+
+overlap existing for run 537897 : 
+DB 4 : 45076x
+DB 5 : 1424447x
+
+overlap existing for run 537899 : 
+DB 4 : 83737x
+DB 5 : 2203446x
+
+overlap existing for run 537900 : 
+DB 4 : 39597x
+DB 5 : 963856x
+
+overlap existing for run 537901 : 
+DB 4 : 45253x
+DB 5 : 1340182x
+
+overlap existing for run 537903 : 
+DB 4 : 131416x
+DB 5 : 3797080x
+
+overlap existing for run 537912 : 
+DB 4 : 4507x
+DB 5 : 147113x
+
+overlap existing for run 537959 : 
+DB 4 : 45607x
+DB 5 : 1483290x
+
+overlap existing for run 537960 : 
+DB 4 : 157728x
+DB 5 : 5492246x
+
+overlap existing for run 537963 : 
+DB 4 : 245624x
+DB 5 : 7275356x
+
+overlap existing for run 537965 : 
+DB 4 : 55764x
+DB 5 : 1822882x
+
+overlap existing for run 538018 : 
+DB 4 : 156668x
+DB 5 : 5452021x
+
+overlap existing for run 538923 : 
+DB 4 : 258x
+DB 5 : 16105x
+
+overlap existing for run 538931 : 
+DB 4 : 339x
+DB 5 : 23889x
+
+overlap existing for run 538932 : 
+DB 4 : 280x
+DB 5 : 25452x
+
+overlap existing for run 538933 : 
+DB 4 : 184x
+DB 5 : 13560x
+
+overlap existing for run 538956 : 
+DB 4 : 178x
+DB 5 : 16776x
+
+overlap existing for run 538958 : 
+DB 4 : 241x
+DB 5 : 18181x
+
+overlap existing for run 538960 : 
+DB 4 : 769x
+DB 5 : 61150x
+
+overlap existing for run 538961 : 
+DB 4 : 245x
+DB 5 : 15323x
+
+overlap existing for run 538964 : 
+DB 4 : 7512x
+DB 5 : 616924x
+
+overlap existing for run 538966 : 
+DB 4 : 2283x
+DB 5 : 170149x
+
+overlap existing for run 538967 : 
+DB 4 : 3870x
+DB 5 : 271863x
+
+overlap existing for run 538968 : 
+DB 4 : 5403x
+DB 5 : 358577x
+
+overlap existing for run 538970 : 
+DB 4 : 3569x
+DB 5 : 272599x
+
+overlap existing for run 539008 : 
+DB 4 : 17874x
+DB 5 : 1078288x
+
+overlap existing for run 539058 : 
+DB 4 : 3094x
+DB 5 : 216764x
+
+overlap existing for run 539071 : 
+DB 4 : 20650x
+DB 5 : 1586413x
+
+overlap existing for run 539086 : 
+DB 4 : 21485x
+DB 5 : 2182622x
+
+overlap existing for run 539087 : 
+DB 4 : 5636x
+DB 5 : 351100x
+
+overlap existing for run 539088 : 
+DB 4 : 17210x
+DB 5 : 986804x
+
+overlap existing for run 539089 : 
+DB 4 : 7620x
+DB 5 : 466889x
+
+overlap existing for run 539107 : 
+DB 4 : 25821x
+DB 5 : 1821475x
+
+overlap existing for run 539108 : 
+DB 4 : 82452x
+DB 5 : 3710886x
+
+overlap existing for run 539129 : 
+DB 4 : 45247x
+DB 5 : 3571745x
+
+overlap existing for run 539130 : 
+DB 4 : 41318x
+DB 5 : 1389206x
+
+overlap existing for run 539132 : 
+DB 4 : 14300x
+DB 5 : 415574x
+
+overlap existing for run 539133 : 
+DB 4 : 30501x
+DB 5 : 1220396x
+
+overlap existing for run 539218 : 
+DB 4 : 343x
+DB 5 : 29630x
+
+overlap existing for run 539219 : 
+DB 4 : 505x
+DB 5 : 47624x
+
+overlap existing for run 539220 : 
+DB 4 : 5952x
+DB 5 : 482566x
+
+overlap existing for run 539221 : 
+DB 4 : 343x
+DB 5 : 25016x
+
+overlap existing for run 539222 : 
+DB 4 : 2643x
+DB 5 : 182381x
+
+overlap existing for run 539226 : 
+DB 4 : 1594x
+DB 5 : 122549x
+
+overlap existing for run 539227 : 
+DB 4 : 1843x
+DB 5 : 139413x
+
+overlap existing for run 539267 : 
+DB 4 : 1312x
+DB 5 : 123576x
+
+overlap existing for run 539268 : 
+DB 4 : 3177x
+DB 5 : 240629x
+
+overlap existing for run 539269 : 
+DB 4 : 552x
+DB 5 : 43153x
+
+overlap existing for run 539270 : 
+DB 4 : 787x
+DB 5 : 58581x
+
+overlap existing for run 539271 : 
+DB 4 : 299x
+DB 5 : 21059x
+
+overlap existing for run 539272 : 
+DB 4 : 490x
+DB 5 : 40996x
+
+overlap existing for run 539273 : 
+DB 4 : 10358x
+DB 5 : 693141x
+
+overlap existing for run 539314 : 
+DB 4 : 25781x
+DB 5 : 1903920x
+
+overlap existing for run 539315 : 
+DB 4 : 8558x
+DB 5 : 655331x
+
+overlap existing for run 539316 : 
+DB 4 : 5195x
+DB 5 : 364283x
+
+overlap existing for run 539317 : 
+DB 4 : 4996x
+DB 5 : 355807x
+
+overlap existing for run 539331 : 
+DB 4 : 18474x
+DB 5 : 1462072x
+
+overlap existing for run 539332 : 
+DB 4 : 6901x
+DB 5 : 519387x
+
+overlap existing for run 539333 : 
+DB 4 : 18721x
+DB 5 : 1369351x
+
+overlap existing for run 539339 : 
+DB 4 : 60388x
+DB 5 : 3876650x
+
+overlap existing for run 539443 : 
+DB 4 : 18869x
+DB 5 : 1243329x
+
+overlap existing for run 539444 : 
+DB 4 : 46670x
+DB 5 : 3003005x
+
+overlap existing for run 539445 : 
+DB 4 : 226380x
+DB 5 : 12961333x
+
+overlap existing for run 539466 : 
+DB 4 : 97274x
+DB 5 : 3215970x
+
+overlap existing for run 539480 : 
+DB 4 : 18420x
+DB 5 : 730886x
+
+overlap existing for run 539481 : 
+DB 4 : 65316x
+DB 5 : 2127473x
+
+overlap existing for run 539482 : 
+DB 4 : 8013x
+DB 5 : 282734x
+
+overlap existing for run 539483 : 
+DB 4 : 347521x
+DB 5 : 11680145x
+
+overlap existing for run 539501 : 
+DB 4 : 314973x
+DB 5 : 11119444x
+
+overlap existing for run 539517 : 
+DB 4 : 18513x
+DB 5 : 532472x
+
+overlap existing for run 539531 : 
+DB 4 : 22597x
+DB 5 : 1285942x
+
+overlap existing for run 539556 : 
+DB 4 : 532134x
+DB 5 : 17148067x
+
+overlap existing for run 539557 : 
+DB 4 : 26611x
+DB 5 : 919666x
+
+overlap existing for run 539580 : 
+DB 4 : 105988x
+DB 5 : 3449105x
+
+overlap existing for run 539622 : 
+DB 4 : 2710x
+DB 5 : 81194x
+
+overlap existing for run 539623 : 
+DB 4 : 50696x
+DB 5 : 1628833x
+
+overlap existing for run 539636 : 
+DB 4 : 26913x
+DB 5 : 1524843x
+
+overlap existing for run 539637 : 
+DB 4 : 25053x
+DB 5 : 1657127x
+
+overlap existing for run 539638 : 
+DB 4 : 184684x
+DB 5 : 5035270x
+
+overlap existing for run 539644 : 
+DB 4 : 63169x
+DB 5 : 1957542x
+
+overlap existing for run 539646 : 
+DB 4 : 8930x
+DB 5 : 134199x
+
+overlap existing for run 539647 : 
+DB 4 : 38880x
+DB 5 : 2122106x
+
+overlap existing for run 539649 : 
+DB 4 : 914623x
+DB 5 : 22019352x
+
+overlap existing for run 539700 : 
+DB 4 : 48212x
+DB 5 : 2072503x
+
+overlap existing for run 539873 : 
+DB 4 : 7422x
+DB 5 : 227335x
+
+overlap existing for run 539874 : 
+DB 4 : 100028x
+DB 5 : 2833153x
+
+overlap existing for run 539875 : 
+DB 4 : 26057x
+DB 5 : 868831x
+
+overlap existing for run 539876 : 
+DB 4 : 7961x
+DB 5 : 246110x
+
+overlap existing for run 539877 : 
+DB 4 : 5320x
+DB 5 : 165897x
+
+overlap existing for run 539882 : 
+DB 4 : 129040x
+DB 5 : 3834449x
+
+overlap existing for run 539883 : 
+DB 4 : 84910x
+DB 5 : 1949586x
+
+overlap existing for run 539884 : 
+DB 4 : 20024x
+DB 5 : 627320x
+
+overlap existing for run 539906 : 
+DB 4 : 109902x
+DB 5 : 3978026x
+
+overlap existing for run 539908 : 
+DB 4 : 375126x
+DB 5 : 11357700x
+
+overlap existing for run 552340 : 
+DB 7 : 74308x
+DB 8 : 89059x
+
+overlap existing for run 552341 : 
+DB 7 : 90937x
+DB 8 : 554699x
+
+overlap existing for run 552353 : 
+DB 7 : 64498x
+DB 8 : 398446x
+
+overlap existing for run 552369 : 
+DB 7 : 21059x
+DB 8 : 137297x
+
+overlap existing for run 552381 : 
+DB 7 : 122530x
+DB 8 : 590530x
+
+overlap existing for run 552382 : 
+DB 7 : 21448x
+DB 8 : 96914x
+
+overlap existing for run 552383 : 
+DB 7 : 2661x
+DB 8 : 11762x
+
+overlap existing for run 552384 : 
+DB 7 : 77044x
+DB 8 : 303143x
+
+overlap existing for run 552400 : 
+DB 7 : 31150x
+DB 8 : 136720x
+
+overlap existing for run 552401 : 
+DB 7 : 72260x
+DB 8 : 313505x
+
+overlap existing for run 552402 : 
+DB 7 : 56759x
+DB 8 : 270494x
+
+overlap existing for run 552403 : 
+DB 7 : 96129x
+DB 8 : 461554x
+
+overlap existing for run 553185 : 
+DB 7 : 20940x
+DB 8 : 134230x
+
+overlap existing for run 553187 : 
+DB 7 : 13907x
+DB 8 : 101623x
+
+overlap existing for run 553188 : 
+DB 7 : 17183x
+DB 8 : 125530x
+
+overlap existing for run 553189 : 
+DB 7 : 37847x
+DB 8 : 273312x
+
+overlap existing for run 553193 : 
+DB 7 : 68326x
+DB 8 : 468657x
+
+overlap existing for run 553219 : 
+DB 7 : 75714x
+DB 8 : 548522x
+
+overlap existing for run 553225 : 
+DB 7 : 127907x
+DB 8 : 785491x
+
+overlap existing for run 553250 : 
+DB 7 : 21320x
+DB 8 : 136684x
+
+overlap existing for run 553253 : 
+DB 7 : 15852x
+DB 8 : 118310x
+
+overlap existing for run 553255 : 
+DB 7 : 19306x
+DB 8 : 127165x
+
+overlap existing for run 553274 : 
+DB 7 : 22871x
+DB 8 : 165190x
+
+overlap existing for run 553294 : 
+DB 7 : 2577x
+DB 8 : 17935x
+
+overlap existing for run 553297 : 
+DB 7 : 14605x
+DB 8 : 103133x
+
+overlap existing for run 553299 : 
+DB 7 : 83770x
+DB 8 : 554353x
+
+overlap existing for run 553305 : 
+DB 7 : 136562x
+DB 8 : 934945x
+
+overlap existing for run 553486 : 
+DB 7 : 13617x
+DB 8 : 95520x
+
+overlap existing for run 553512 : 
+DB 7 : 35698x
+DB 8 : 248609x
+
+overlap existing for run 553530 : 
+DB 7 : 78157x
+DB 8 : 551697x
+
+overlap existing for run 553536 : 
+DB 7 : 79453x
+DB 8 : 538808x
+
+overlap existing for run 553555 : 
+DB 7 : 242822x
+DB 8 : 1461385x
+
+overlap existing for run 553588 : 
+DB 7 : 9314x
+DB 8 : 52357x
+
+overlap existing for run 553590 : 
+DB 7 : 52662x
+DB 8 : 366190x
+
+overlap existing for run 553610 : 
+DB 7 : 33666x
+DB 8 : 214302x
+
+overlap existing for run 553633 : 
+DB 7 : 76499x
+DB 8 : 496081x
+
+overlap existing for run 553655 : 
+DB 7 : 124810x
+DB 8 : 819061x
+
+overlap existing for run 553660 : 
+DB 7 : 16213x
+DB 8 : 98409x
+
+overlap existing for run 553663 : 
+DB 7 : 78445x
+DB 8 : 542423x
+
+overlap existing for run 553700 : 
+DB 7 : 9641x
+DB 8 : 59752x
+
+overlap existing for run 553702 : 
+DB 7 : 159278x
+DB 8 : 1086099x
+
+overlap existing for run 553739 : 
+DB 7 : 34981x
+DB 8 : 246849x
+
+overlap existing for run 553756 : 
+DB 7 : 11798x
+DB 8 : 83274x
+
+overlap existing for run 553785 : 
+DB 7 : 122434x
+DB 8 : 839917x
+
+overlap existing for run 553807 : 
+DB 7 : 111416x
+DB 8 : 784380x
+
+overlap existing for run 553816 : 
+DB 7 : 17504x
+DB 8 : 127579x
+
+overlap existing for run 553819 : 
+DB 7 : 11151x
+DB 8 : 83296x
+
+overlap existing for run 553821 : 
+DB 7 : 18091x
+DB 8 : 124626x
+
+overlap existing for run 553824 : 
+DB 7 : 3952x
+DB 8 : 26534x
+
+overlap existing for run 553825 : 
+DB 7 : 20085x
+DB 8 : 127591x
+
+overlap existing for run 553844 : 
+DB 7 : 66440x
+DB 8 : 449343x
+
+overlap existing for run 553862 : 
+DB 7 : 58835x
+DB 8 : 400764x
+
+overlap existing for run 553880 : 
+DB 7 : 47195x
+DB 8 : 310324x
+
+overlap existing for run 553903 : 
+DB 7 : 2034x
+DB 8 : 17549x
+
+overlap existing for run 554092 : 
+DB 7 : 3266x
+DB 8 : 18433x
+
+overlap existing for run 554094 : 
+DB 7 : 2575x
+DB 8 : 19873x
+
+overlap existing for run 554095 : 
+DB 7 : 3054x
+DB 8 : 19952x
+
+overlap existing for run 554097 : 
+DB 7 : 1010x
+DB 8 : 4727x
+
+overlap existing for run 554098 : 
+DB 7 : 22125x
+DB 8 : 140973x
+
+overlap existing for run 554194 : 
+DB 7 : 44675x
+DB 8 : 302228x
+
+overlap existing for run 554198 : 
+DB 7 : 29320x
+DB 8 : 198204x
+
+overlap existing for run 554201 : 
+DB 7 : 10004x
+DB 8 : 40377x
+
+overlap existing for run 554203 : 
+DB 7 : 39540x
+DB 8 : 265936x
+
+overlap existing for run 554207 : 
+DB 7 : 1860x
+DB 8 : 6229x
+
+overlap existing for run 554208 : 
+DB 7 : 67379x
+DB 8 : 454884x
+
+overlap existing for run 554223 : 
+DB 7 : 203356x
+DB 8 : 1360343x
+
+overlap existing for run 554247 : 
+DB 7 : 171813x
+DB 8 : 1173973x
+
+overlap existing for run 554261 : 
+DB 7 : 24887x
+DB 8 : 158504x
+
+overlap existing for run 554293 : 
+DB 7 : 2981x
+DB 8 : 19303x
+
+overlap existing for run 554295 : 
+DB 7 : 107505x
+DB 8 : 628248x
+
+overlap existing for run 554316 : 
+DB 7 : 78120x
+DB 8 : 516682x
+
+overlap existing for run 554322 : 
+DB 7 : 11554x
+DB 8 : 44569x
+
+overlap existing for run 554323 : 
+DB 7 : 24448x
+DB 8 : 154433x
+
+overlap existing for run 554354 : 
+DB 7 : 192807x
+DB 8 : 1254558x
+
+overlap existing for run 554394 : 
+DB 7 : 91707x
+DB 8 : 563873x
+
+overlap existing for run 554404 : 
+DB 7 : 39756x
+DB 8 : 256479x
+
+overlap existing for run 554408 : 
+DB 7 : 57103x
+DB 8 : 366999x
+
+overlap existing for run 554413 : 
+DB 7 : 7717x
+DB 8 : 54986x
+
+overlap existing for run 554427 : 
+DB 7 : 26270x
+DB 8 : 175319x
+
+overlap existing for run 554462 : 
+DB 7 : 112500x
+DB 8 : 685219x
+
+overlap existing for run 554471 : 
+DB 7 : 12604x
+DB 8 : 77253x
+
+overlap existing for run 554494 : 
+DB 7 : 51856x
+DB 8 : 332991x
+
+overlap existing for run 554495 : 
+DB 7 : 112111x
+DB 8 : 702699x
+
+overlap existing for run 554504 : 
+DB 7 : 35295x
+DB 8 : 226943x
+
+overlap existing for run 554507 : 
+DB 7 : 7115x
+DB 8 : 50483x
+
+overlap existing for run 554524 : 
+DB 7 : 7375x
+DB 8 : 35273x
+
+overlap existing for run 554526 : 
+DB 7 : 140084x
+DB 8 : 865644x
+
+overlap existing for run 554538 : 
+DB 7 : 55765x
+DB 8 : 386285x
+
+overlap existing for run 554558 : 
+DB 7 : 57343x
+DB 8 : 416951x
+
+overlap existing for run 554564 : 
+DB 7 : 60888x
+DB 8 : 430673x
+
+overlap existing for run 554569 : 
+DB 7 : 70689x
+DB 8 : 509221x
+
+overlap existing for run 554588 : 
+DB 7 : 15090x
+DB 8 : 109057x
+
+overlap existing for run 554603 : 
+DB 7 : 111272x
+DB 8 : 769007x
+
+overlap existing for run 554613 : 
+DB 7 : 12158x
+DB 8 : 77865x
+
+overlap existing for run 554615 : 
+DB 7 : 69373x
+DB 8 : 474513x
+
+overlap existing for run 554633 : 
+DB 7 : 55177x
+DB 8 : 373339x
+
+overlap existing for run 554701 : 
+DB 7 : 5946x
+DB 8 : 31576x
+
+overlap existing for run 554703 : 
+DB 7 : 166086x
+DB 8 : 1139152x
+
+overlap existing for run 554714 : 
+DB 7 : 28848x
+DB 8 : 196360x
+
+overlap existing for run 554728 : 
+DB 7 : 41991x
+DB 8 : 285873x
+
+overlap existing for run 554732 : 
+DB 7 : 17428x
+DB 8 : 95974x
+
+overlap existing for run 554736 : 
+DB 7 : 5863x
+DB 8 : 39507x
+
+overlap existing for run 554752 : 
+DB 7 : 26956x
+DB 8 : 179232x
+
+overlap existing for run 554768 : 
+DB 7 : 32949x
+DB 8 : 222769x
+
+overlap existing for run 554772 : 
+DB 7 : 13971x
+DB 8 : 60804x
+
+overlap existing for run 554774 : 
+DB 7 : 6151x
+DB 8 : 41289x
+
+overlap existing for run 554791 : 
+DB 7 : 44821x
+DB 8 : 303051x
+
+overlap existing for run 554808 : 
+DB 7 : 178626x
+DB 8 : 1229453x
+
+overlap existing for run 554835 : 
+DB 7 : 11243x
+DB 8 : 75552x
+
+overlap existing for run 554837 : 
+DB 7 : 173864x
+DB 8 : 1165264x
+
+overlap existing for run 554873 : 
+DB 7 : 85327x
+DB 8 : 518228x
+
+overlap existing for run 554880 : 
+DB 7 : 31503x
+DB 8 : 199523x
+
+overlap existing for run 554898 : 
+DB 7 : 146219x
+DB 8 : 948951x
+
+overlap existing for run 554920 : 
+DB 7 : 168767x
+DB 8 : 1127930x
+
+overlap existing for run 554968 : 
+DB 7 : 19013x
+DB 8 : 120977x
+
+overlap existing for run 554970 : 
+DB 7 : 26275x
+DB 8 : 176489x
+
+overlap existing for run 554973 : 
+DB 7 : 112159x
+DB 8 : 762874x
+
+overlap existing for run 554998 : 
+DB 7 : 105893x
+DB 8 : 695089x
+
+overlap existing for run 555020 : 
+DB 7 : 67954x
+DB 8 : 435036x
+
+overlap existing for run 555022 : 
+DB 7 : 53269x
+DB 8 : 322863x
+
+overlap existing for run 555023 : 
+DB 7 : 64528x
+DB 8 : 420869x
+
+overlap existing for run 555047 : 
+DB 7 : 1670x
+DB 8 : 13064x
+
+overlap existing for run 555071 : 
+DB 7 : 45124x
+DB 8 : 252110x
+
+overlap existing for run 555073 : 
+DB 7 : 9827x
+DB 8 : 66755x
+
+overlap existing for run 555121 : 
+DB 7 : 30497x
+DB 8 : 196201x
+
+overlap existing for run 555122 : 
+DB 7 : 8597x
+DB 8 : 53077x
+
+overlap existing for run 555124 : 
+DB 7 : 130969x
+DB 8 : 829759x
+
+overlap existing for run 555150 : 
+DB 7 : 10053x
+DB 8 : 62587x
+
+overlap existing for run 555152 : 
+DB 7 : 21046x
+DB 8 : 120333x
+
+overlap existing for run 555156 : 
+DB 7 : 48164x
+DB 8 : 305842x
+
+overlap existing for run 555160 : 
+DB 7 : 69458x
+DB 8 : 432312x
+
+overlap existing for run 555166 : 
+DB 7 : 15921x
+DB 8 : 93532x
+
+overlap existing for run 555172 : 
+DB 7 : 35552x
+DB 8 : 236030x
+
+overlap existing for run 555187 : 
+DB 7 : 35435x
+DB 8 : 243752x
+
+overlap existing for run 555202 : 
+DB 7 : 69286x
+DB 8 : 462494x
+
+overlap existing for run 555208 : 
+DB 7 : 61211x
+DB 8 : 405868x
+
+overlap existing for run 555226 : 
+DB 7 : 79662x
+DB 8 : 513314x
+
+overlap existing for run 555232 : 
+DB 7 : 128508x
+DB 8 : 866537x
+
+overlap existing for run 555254 : 
+DB 7 : 63442x
+DB 8 : 379615x
+
+overlap existing for run 555259 : 
+DB 7 : 117820x
+DB 8 : 764803x
+
+overlap existing for run 555267 : 
+DB 7 : 29643x
+DB 8 : 187432x
+
+overlap existing for run 555270 : 
+DB 7 : 9182x
+DB 8 : 59024x
+
+overlap existing for run 555308 : 
+DB 7 : 163082x
+DB 8 : 1001879x
+
+overlap existing for run 555344 : 
+DB 7 : 8145x
+DB 8 : 54054x
+
+overlap existing for run 555345 : 
+DB 7 : 195343x
+DB 8 : 1257278x
+
+overlap existing for run 555370 : 
+DB 7 : 46015x
+DB 8 : 292814x
+
+overlap existing for run 555374 : 
+DB 7 : 136419x
+DB 8 : 974239x
+
+overlap existing for run 555401 : 
+DB 7 : 4657x
+DB 8 : 26021x
+
+overlap existing for run 555408 : 
+DB 7 : 38438x
+DB 8 : 207408x
+
+overlap existing for run 555411 : 
+DB 7 : 11437x
+DB 8 : 76503x
+
+overlap existing for run 555431 : 
+DB 7 : 52820x
+DB 8 : 318880x
+
+overlap existing for run 555435 : 
+DB 7 : 39714x
+DB 8 : 255825x
+
+overlap existing for run 555443 : 
+DB 7 : 97641x
+DB 8 : 645008x
+
+overlap existing for run 555451 : 
+DB 7 : 14663x
+DB 8 : 85868x
+
+overlap existing for run 555476 : 
+DB 7 : 4957x
+DB 8 : 30549x
+
+overlap existing for run 555478 : 
+DB 7 : 44435x
+DB 8 : 306685x
+
+overlap existing for run 555482 : 
+DB 7 : 131470x
+DB 8 : 873687x
+
+overlap existing for run 555504 : 
+DB 7 : 140324x
+DB 8 : 1036144x
+
+overlap existing for run 555540 : 
+DB 7 : 21981x
+DB 8 : 147341x
+
+overlap existing for run 555543 : 
+DB 7 : 16506x
+DB 8 : 94641x
+
+overlap existing for run 555546 : 
+DB 7 : 140634x
+DB 8 : 946154x
+
+overlap existing for run 555575 : 
+DB 7 : 3266x
+DB 8 : 19548x
+
+overlap existing for run 555591 : 
+DB 7 : 43182x
+DB 8 : 281521x
+
+overlap existing for run 555596 : 
+DB 7 : 45168x
+DB 8 : 316686x
+
+overlap existing for run 555612 : 
+DB 7 : 97605x
+DB 8 : 741137x
+
+overlap existing for run 555649 : 
+DB 7 : 2986x
+DB 8 : 19600x
+
+overlap existing for run 555651 : 
+DB 7 : 194850x
+DB 8 : 1314167x
+
+overlap existing for run 555676 : 
+DB 7 : 44131x
+DB 8 : 278838x
+
+overlap existing for run 555693 : 
+DB 7 : 3009x
+DB 8 : 13164x
+
+overlap existing for run 555695 : 
+DB 7 : 141712x
+DB 8 : 968185x
+
+overlap existing for run 555705 : 
+DB 7 : 20611x
+DB 8 : 140201x
+
+overlap existing for run 555707 : 
+DB 7 : 14968x
+DB 8 : 101148x
+
+overlap existing for run 555722 : 
+DB 7 : 9114x
+DB 8 : 57690x
+
+overlap existing for run 555723 : 
+DB 7 : 14629x
+DB 8 : 100596x
+
+overlap existing for run 555740 : 
+DB 7 : 6615x
+DB 8 : 37726x
+
+overlap existing for run 555742 : 
+DB 7 : 14830x
+DB 8 : 86933x
+
+overlap existing for run 555759 : 
+DB 7 : 10721x
+DB 8 : 71753x
+
+overlap existing for run 555761 : 
+DB 7 : 7862x
+DB 8 : 54207x
+
+overlap existing for run 555763 : 
+DB 7 : 164284x
+DB 8 : 1083142x
+
+overlap existing for run 555789 : 
+DB 7 : 2732x
+DB 8 : 7302x
+
+overlap existing for run 555790 : 
+DB 7 : 119240x
+DB 8 : 821942x
+
+overlap existing for run 555798 : 
+DB 7 : 13554x
+DB 8 : 98261x
+
+overlap existing for run 555801 : 
+DB 7 : 40924x
+DB 8 : 281632x
+
+overlap existing for run 555850 : 
+DB 7 : 17768x
+DB 8 : 107573x
+
+overlap existing for run 555853 : 
+DB 7 : 30675x
+DB 8 : 178157x
+
+overlap existing for run 555860 : 
+DB 7 : 100620x
+DB 8 : 681224x
+
+overlap existing for run 555881 : 
+DB 7 : 7429x
+DB 8 : 45351x
+
+overlap existing for run 555883 : 
+DB 7 : 40625x
+DB 8 : 278534x
+
+overlap existing for run 555900 : 
+DB 7 : 30559x
+DB 8 : 203267x
+
+overlap existing for run 555917 : 
+DB 7 : 36532x
+DB 8 : 236723x
+
+overlap existing for run 555933 : 
+DB 7 : 131937x
+DB 8 : 811018x
+
+overlap existing for run 555958 : 
+DB 7 : 3610x
+DB 8 : 8247x
+
+overlap existing for run 555960 : 
+DB 7 : 28358x
+DB 8 : 191115x
+
+overlap existing for run 555965 : 
+DB 7 : 10804x
+DB 8 : 37838x
+
+overlap existing for run 555967 : 
+DB 7 : 73969x
+DB 8 : 583969x
+
+overlap existing for run 555976 : 
+DB 7 : 4479x
+DB 8 : 25876x
+
+overlap existing for run 556152 : 
+DB 7 : 92537x
+DB 8 : 653635x
+
+overlap existing for run 556160 : 
+DB 7 : 43731x
+DB 8 : 304924x
+
+overlap existing for run 556164 : 
+DB 7 : 26308x
+DB 8 : 184568x
+
+overlap existing for run 556182 : 
+DB 7 : 104773x
+DB 8 : 682083x
+
+overlap existing for run 556210 : 
+DB 7 : 90451x
+DB 8 : 590730x
+
+overlap existing for run 556218 : 
+DB 7 : 81394x
+DB 8 : 553342x
+
+overlap existing for run 556237 : 
+DB 7 : 139041x
+DB 8 : 913238x
+
+overlap existing for run 556248 : 
+DB 7 : 32989x
+DB 8 : 210207x
+
+overlap existing for run 556269 : 
+DB 7 : 15530x
+DB 8 : 104357x
+
+overlap existing for run 556284 : 
+DB 7 : 63517x
+DB 8 : 438906x
+
+overlap existing for run 556370 : 
+DB 7 : 12215x
+DB 8 : 48163x
+
+overlap existing for run 556372 : 
+DB 7 : 67766x
+DB 8 : 432174x
+
+overlap existing for run 556412 : 
+DB 7 : 176173x
+DB 8 : 1210498x
+
+overlap existing for run 556437 : 
+DB 7 : 24508x
+DB 8 : 173427x
+
+overlap existing for run 556454 : 
+DB 7 : 69501x
+DB 8 : 480952x
+
+overlap existing for run 556461 : 
+DB 7 : 91847x
+DB 8 : 622029x
+
+overlap existing for run 556482 : 
+DB 7 : 24956x
+DB 8 : 172713x
+
+overlap existing for run 556485 : 
+DB 7 : 59840x
+DB 8 : 420166x
+
+overlap existing for run 556491 : 
+DB 7 : 79539x
+DB 8 : 539754x
+
+overlap existing for run 556497 : 
+DB 7 : 9254x
+DB 8 : 68463x
+
+overlap existing for run 556517 : 
+DB 7 : 176994x
+DB 8 : 1230179x
+
+overlap existing for run 556542 : 
+DB 7 : 43771x
+DB 8 : 282414x
+
+overlap existing for run 556562 : 
+DB 7 : 122667x
+DB 8 : 836328x
+
+overlap existing for run 556639 : 
+DB 7 : 4582x
+DB 8 : 29057x
+
+overlap existing for run 556640 : 
+DB 7 : 6456x
+DB 8 : 42571x
+
+overlap existing for run 556641 : 
+DB 7 : 24596x
+DB 8 : 162929x
+
+overlap existing for run 556662 : 
+DB 7 : 11025x
+DB 8 : 75072x
+
+overlap existing for run 556664 : 
+DB 7 : 183983x
+DB 8 : 1202535x
+
+overlap existing for run 556680 : 
+DB 7 : 85939x
+DB 8 : 604407x
+
+overlap existing for run 556716 : 
+DB 7 : 47094x
+DB 8 : 301514x
+
+overlap existing for run 556734 : 
+DB 7 : 75352x
+DB 8 : 558611x
+
+overlap existing for run 556741 : 
+DB 7 : 70918x
+DB 8 : 515493x
+
+overlap existing for run 556767 : 
+DB 7 : 148625x
+DB 8 : 1082623x
+
+overlap existing for run 556816 : 
+DB 7 : 71897x
+DB 8 : 506388x
+
+overlap existing for run 556834 : 
+DB 7 : 172941x
+DB 8 : 1290139x
+
+overlap existing for run 556872 : 
+DB 7 : 32983x
+DB 8 : 222429x
+
+overlap existing for run 556889 : 
+DB 7 : 42559x
+DB 8 : 307027x
+
+overlap existing for run 556907 : 
+DB 7 : 18690x
+DB 8 : 131410x
+
+overlap existing for run 556909 : 
+DB 7 : 22605x
+DB 8 : 138955x
+
+overlap existing for run 556913 : 
+DB 7 : 83664x
+DB 8 : 796693x
+
+overlap existing for run 556923 : 
+DB 7 : 23325x
+DB 8 : 168718x
+
+overlap existing for run 556939 : 
+DB 7 : 53861x
+DB 8 : 389571x
+
+overlap existing for run 556954 : 
+DB 7 : 39606x
+DB 8 : 288771x
+
+overlap existing for run 556958 : 
+DB 7 : 120462x
+DB 8 : 838332x
+
+overlap existing for run 556979 : 
+DB 7 : 7562x
+DB 8 : 49983x
+
+overlap existing for run 556981 : 
+DB 7 : 37608x
+DB 8 : 255699x
+
+overlap existing for run 556997 : 
+DB 7 : 68508x
+DB 8 : 490552x
+
+overlap existing for run 557012 : 
+DB 7 : 72906x
+DB 8 : 526006x
+
+overlap existing for run 557019 : 
+DB 7 : 15627x
+DB 8 : 108417x
+
+overlap existing for run 557021 : 
+DB 7 : 51082x
+DB 8 : 360169x
+
+overlap existing for run 557026 : 
+DB 7 : 7598x
+DB 8 : 56082x
+
+overlap existing for run 557074 : 
+DB 7 : 38193x
+DB 8 : 258013x
+
+overlap existing for run 557104 : 
+DB 7 : 89080x
+DB 8 : 595818x
+
+overlap existing for run 557112 : 
+DB 7 : 71864x
+DB 8 : 509849x
+
+overlap existing for run 557118 : 
+DB 7 : 3394x
+DB 8 : 8603x
+
+overlap existing for run 557119 : 
+DB 7 : 17430x
+DB 8 : 110180x
+
+overlap existing for run 557138 : 
+DB 7 : 134333x
+DB 8 : 948267x
+
+overlap existing for run 557149 : 
+DB 7 : 36945x
+DB 8 : 263829x
+
+overlap existing for run 557226 : 
+DB 7 : 20408x
+DB 8 : 124562x
+
+overlap existing for run 557233 : 
+DB 7 : 59064x
+DB 8 : 380947x
+
+overlap existing for run 557251 : 
+DB 7 : 89805x
+DB 8 : 597733x
+
+overlap existing for run 557271 : 
+DB 7 : 50924x
+DB 8 : 347639x
+
+overlap existing for run 557291 : 
+DB 7 : 89468x
+DB 8 : 608674x
+
+overlap existing for run 557299 : 
+DB 7 : 90743x
+DB 8 : 604948x
+
+overlap existing for run 557321 : 
+DB 7 : 6489x
+DB 8 : 45284x
+
+overlap existing for run 557336 : 
+DB 7 : 29403x
+DB 8 : 208790x
+
+overlap existing for run 557339 : 
+DB 7 : 130511x
+DB 8 : 862959x
+
+overlap existing for run 557350 : 
+DB 7 : 25104x
+DB 8 : 169796x
+
+overlap existing for run 557374 : 
+DB 7 : 10198x
+DB 8 : 71026x
+
+overlap existing for run 557415 : 
+DB 7 : 126112x
+DB 8 : 880027x
+
+overlap existing for run 557425 : 
+DB 7 : 61979x
+DB 8 : 528183x
+
+overlap existing for run 557444 : 
+DB 7 : 1341x
+DB 8 : 7495x
+
+overlap existing for run 557481 : 
+DB 7 : 2822x
+DB 8 : 19766x
+
+overlap existing for run 557482 : 
+DB 7 : 134800x
+DB 8 : 1250845x
+
+overlap existing for run 557509 : 
+DB 7 : 62479x
+DB 8 : 435052x
+
+overlap existing for run 557531 : 
+DB 7 : 55710x
+DB 8 : 402068x
+
+overlap existing for run 557547 : 
+DB 7 : 128317x
+DB 8 : 837344x
+
+overlap existing for run 557613 : 
+DB 7 : 165343x
+DB 8 : 1176053x
+
+overlap existing for run 557659 : 
+DB 7 : 88106x
+DB 8 : 626827x
+
+overlap existing for run 557681 : 
+DB 7 : 99145x
+DB 8 : 809875x
+
+overlap existing for run 557691 : 
+DB 7 : 47106x
+DB 8 : 328320x
+
+overlap existing for run 557717 : 
+DB 7 : 62586x
+DB 8 : 428332x
+
+overlap existing for run 557723 : 
+DB 7 : 16694x
+DB 8 : 99799x
+
+overlap existing for run 557726 : 
+DB 7 : 16398x
+DB 8 : 113192x
+
+overlap existing for run 557744 : 
+DB 7 : 74771x
+DB 8 : 581315x
+
+overlap existing for run 557749 : 
+DB 7 : 11961x
+DB 8 : 86827x
+
+overlap existing for run 557862 : 
+DB 7 : 16812x
+DB 8 : 126404x
+
+overlap existing for run 557876 : 
+DB 7 : 17214x
+DB 8 : 123049x
+
+overlap existing for run 557897 : 
+DB 7 : 12134x
+DB 8 : 90486x
+
+overlap existing for run 557913 : 
+DB 7 : 5924x
+DB 8 : 20117x
+
+overlap existing for run 557926 : 
+DB 7 : 60061x
+DB 8 : 450629x
+
+overlap existing for run 558122 : 
+DB 7 : 7616x
+DB 8 : 61261x
+
+overlap existing for run 558124 : 
+DB 7 : 15031x
+DB 8 : 116165x
+
+overlap existing for run 558126 : 
+DB 7 : 9370x
+DB 8 : 70845x
+
+overlap existing for run 558150 : 
+DB 7 : 33774x
+DB 8 : 251408x
+
+overlap existing for run 558153 : 
+DB 7 : 11177x
+DB 8 : 86771x
+
+overlap existing for run 558155 : 
+DB 7 : 53828x
+DB 8 : 545116x
+
+overlap existing for run 558179 : 
+DB 7 : 14366x
+DB 8 : 111284x
+
+overlap existing for run 558182 : 
+DB 7 : 147014x
+DB 8 : 1172289x
+
+overlap existing for run 558215 : 
+DB 7 : 7188x
+DB 8 : 56968x
+
+overlap existing for run 558217 : 
+DB 7 : 38116x
+DB 8 : 300353x
+
+overlap existing for run 558221 : 
+DB 7 : 140325x
+DB 8 : 976412x
+
+overlap existing for run 558244 : 
+DB 7 : 28787x
+DB 8 : 214958x
+
+overlap existing for run 558247 : 
+DB 7 : 161593x
+DB 8 : 1231579x
+
+overlap existing for run 558273 : 
+DB 7 : 2633x
+DB 8 : 15625x
+
+overlap existing for run 558275 : 
+DB 7 : 107733x
+DB 8 : 826521x
+
+overlap existing for run 558284 : 
+DB 7 : 7384x
+DB 8 : 59082x
+
+overlap existing for run 558288 : 
+DB 7 : 9094x
+DB 8 : 68792x
+
+overlap existing for run 558291 : 
+DB 7 : 28926x
+DB 8 : 214945x
+
+overlap existing for run 558327 : 
+DB 7 : 5330x
+DB 8 : 37170x
+
+overlap existing for run 558329 : 
+DB 7 : 5437x
+DB 8 : 32645x
+
+overlap existing for run 558330 : 
+DB 7 : 144862x
+DB 8 : 1115782x
+
+overlap existing for run 558354 : 
+DB 7 : 35617x
+DB 8 : 290893x
+
+overlap existing for run 558369 : 
+DB 7 : 29308x
+DB 8 : 225883x
+
+overlap existing for run 558387 : 
+DB 7 : 29262x
+DB 8 : 166909x
+
+overlap existing for run 558390 : 
+DB 7 : 67914x
+DB 8 : 398593x
+
+overlap existing for run 558406 : 
+DB 7 : 20296x
+DB 8 : 122698x
+
+overlap existing for run 558409 : 
+DB 7 : 10518x
+DB 8 : 48807x
+
+overlap existing for run 558410 : 
+DB 7 : 2756x
+DB 8 : 13922x
+
+overlap existing for run 558422 : 
+DB 7 : 126616x
+DB 8 : 730911x
+
+overlap existing for run 558433 : 
+DB 7 : 24878x
+DB 8 : 116056x
+
+overlap existing for run 558437 : 
+DB 7 : 5348x
+DB 8 : 13259x
+
+overlap existing for run 558449 : 
+DB 7 : 233850x
+DB 8 : 1319619x
+
+overlap existing for run 558482 : 
+DB 7 : 174256x
+DB 8 : 921881x
+
+overlap existing for run 558535 : 
+DB 7 : 10231x
+DB 8 : 50537x
+
+overlap existing for run 558551 : 
+DB 7 : 61258x
+DB 8 : 338645x
+
+overlap existing for run 558602 : 
+DB 7 : 10332x
+DB 8 : 51533x
+
+overlap existing for run 558604 : 
+DB 7 : 18304x
+DB 8 : 97974x
+
+overlap existing for run 558606 : 
+DB 7 : 129935x
+DB 8 : 740595x
+
+overlap existing for run 558615 : 
+DB 7 : 8732x
+DB 8 : 24412x
+
+overlap existing for run 558627 : 
+DB 7 : 74311x
+DB 8 : 394768x
+
+overlap existing for run 558633 : 
+DB 7 : 108645x
+DB 8 : 774899x
+
+overlap existing for run 558656 : 
+DB 7 : 39617x
+DB 8 : 313175x
+
+overlap existing for run 558676 : 
+DB 7 : 64722x
+DB 8 : 761775x
+
+overlap existing for run 558685 : 
+DB 7 : 17287x
+DB 8 : 100282x
+
+overlap existing for run 558726 : 
+DB 7 : 59890x
+DB 8 : 308953x
+
+overlap existing for run 558744 : 
+DB 7 : 63732x
+DB 8 : 506133x
+
+overlap existing for run 558750 : 
+DB 7 : 10684x
+DB 8 : 44112x
+
+overlap existing for run 558752 : 
+DB 7 : 16470x
+DB 8 : 58027x
+
+overlap existing for run 558757 : 
+DB 7 : 97106x
+DB 8 : 545654x
+
+overlap existing for run 558783 : 
+DB 7 : 45348x
+DB 8 : 406143x
+
+overlap existing for run 558801 : 
+DB 7 : 52534x
+DB 8 : 287541x
+

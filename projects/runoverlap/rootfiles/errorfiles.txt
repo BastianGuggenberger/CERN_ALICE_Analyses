@@ -1,0 +1,17 @@
+rootfile0:
+
+
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0039.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0040.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0041.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0042.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0043.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0044.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0045.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0046.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0047.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0048.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0049.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0050.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0051.root
+/media/ubuma/PortableSSD/LHC22_pass4_highIR_Thin/DGAnalysisTree_0052.root
