@@ -2,6 +2,15 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 
 databaseids = [0,1,2,3,4,5,6,7,8]
+databasenames = ["LHC22_pass4_highIR_Thin",#0
+                 "LHC22_pass4_highIR_Thin_sampling",#1
+                 "LHC22_pass4_lowIR",#2
+                 "LHC22_pass7_skimmed",#3
+                 "LHC23_pass4_skimmed",#4
+                 "LHC23_pass4_Thin",#5
+                 "LHC23_pass4_Thin_small",#6
+                 "LHC24_pass1_MinBias",#7
+                 "LHC24_pass1_skimmed"]#8
 
 
 #Load total runmap:
@@ -21,25 +30,27 @@ for id in databaseids:
 
 
 #Start plotting:
-plt.figure(figsize=(16,3.5))
+plt.figure(figsize=(17,5))
 colorset = ["red","blue","green","orange","purple","cyan","magenta","gold","brown"]
 for id in databaseids:
     x = totalrunmap.keys()
     y = [float(id)] * len(x)
-    plt.ylim(-0.5,8.5)
+    plt.ylim(-1,9)
     colors = [colorset[id] if totalrunmap[run][id]!=0 else "grey" for run in x]
     label = "DB " + str(id)
-    plt.scatter(x,y,c=colors,label=label)
+    plt.vlines(x,ymin=id-0.4, ymax=id+0.4 ,colors=colors,label=label)
 
-plt.xlabel("RunNumber")
-plt.ylabel("Database")
+plt.xlabel("RunNumber",fontweight="bold")
+plt.ylabel("Dataset",fontweight="bold")
+plt.yticks(databaseids,databasenames)
 legend_handles = []
 for id in databaseids:
     legend_handles.append(mlines.Line2D([], [], color=colorset[id], marker='o', linestyle='None', markersize=4, label="DB " + str(id)))
-plt.legend(handles=legend_handles, loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(databaseids))
-plt.subplots_adjust(bottom=0.4)
-
-plt.savefig("runoverlap.png")
+plt.legend(handles=legend_handles, loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=len(databaseids))
+plt.title("Overlap in RunNumbers for ALICE Datasets",fontweight="bold")
+plt.subplots_adjust(bottom=0.23)
+plt.subplots_adjust(left=0.23)
+plt.savefig("runoverlap.png",dpi=800)
 
 
 
