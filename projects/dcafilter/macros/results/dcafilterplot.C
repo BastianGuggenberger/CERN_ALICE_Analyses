@@ -1,3 +1,5 @@
+//plots the histograms built by dcafilter.C
+
 #include "Riostream.h"
 #include "TFile.h"
 #include "TChain.h"

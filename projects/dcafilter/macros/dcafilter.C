@@ -1,3 +1,6 @@
+//Fills Histograms of pp Events with kaon events filtered out by restricting the dca
+
+
 #include "Riostream.h"
 #include "TFile.h"
 #include "TChain.h"
@@ -174,9 +177,9 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
 
 
 void varycutoff(){
-  double startcutoff = 0.10;
+  double startcutoff = 100.0;
   double stepsize = 0.10;
-  double n_steps = 2;
+  double n_steps = 1;
   double cutoff;
   std::string label;
   for (int i=0; i<n_steps; i++){
