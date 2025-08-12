@@ -31,6 +31,11 @@
 // auto fnames = std::string("rootfiles.txt");
 void processppEvents(std::string label, std::string fnames, double cutoff, TString fnconfig = "ppConfig.json")
 {
+
+  //safe data
+  std::string histofilename = "results/histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
+  TFile histofile(histofilename.c_str(), "RECREATE");
+
   // get helpers and configuration
   ppHelpers pph;
   ppConfiguration* ppc = new ppConfiguration(fnconfig);
@@ -153,9 +158,6 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
     }
   }
 
-  //safe data
-  std::string histofilename = "histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
-  TFile histofile(histofilename.c_str(), "RECREATE");
 
   int len_1 = hs1d.size();
   int len_2 = hs2d.size();
