@@ -50,7 +50,7 @@ plt.legend(handles=legend_handles, loc='upper center', bbox_to_anchor=(0.5, -0.1
 plt.title("Overlap in RunNumbers for ALICE Datasets",fontweight="bold")
 plt.subplots_adjust(bottom=0.23)
 plt.subplots_adjust(left=0.23)
-plt.savefig("runoverlap.png",dpi=800)
+plt.savefig("runoverlap.png",dpi=400)
 
 
 
