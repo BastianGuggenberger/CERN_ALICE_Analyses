@@ -2,8 +2,8 @@
 const int nmasses = 5;
 const int nelemsMax = 8;
 
-const double acc_xy = 15.0e-03;
-const double acc_z = 12.5e-03;
+//const double acc_xy = 15.0e-03;
+//const double acc_z = 12.5e-03;
 
 #include "ppDataItems.h"
 #include "ppDataItems.C"
@@ -610,7 +610,7 @@ class ppHelpers
     }
 
     // check event
-    bool isGoodEvent(ppConfiguration* ppc, double cutoff)
+    bool isGoodEvent(ppConfiguration* ppc, double alpha, double acc_xy, double acc_z)
     {
       if (NumContrib < ppc->cc<int>("nPVmin") || NumContrib > ppc->cc<int>("nPVmax")) return false;
       
@@ -635,9 +635,9 @@ class ppHelpers
       
       //dca filter
       for (int ii=0; ii<NumContrib; ii++){
-        double c = 1.0/(acc_xy*acc_xy);
-        double d = 1.0/(acc_z*acc_z);
-        if(c * (TrkDCAxy[ii]*TrkDCAxy[ii]) + d * (TrkDCAz[ii]*TrkDCAz[ii]) > cutoff){
+        double c = 1.0/(acc_xy*acc_xy); //acc_xy represents 1. half axis of the ellipse
+        double d = 1.0/(acc_z*acc_z); //acc_z represents 2. half axis of the ellipse
+        if(c * (TrkDCAxy[ii]*TrkDCAxy[ii]) + d * (TrkDCAz[ii]*TrkDCAz[ii]) > alpha){
             return false;
           }
       }

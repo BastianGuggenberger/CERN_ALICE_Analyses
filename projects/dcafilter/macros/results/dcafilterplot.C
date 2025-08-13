@@ -7,16 +7,20 @@
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TVector3.h"
+#include "../ppHelpers.h"
 
-#include "ppHelpers.h"
+//----------------------------
+//CUSTOM VARIABLES (important!)
+double acc_xy = 0.015;
+double acc_z = 0.0125;
+double alpha = 0.6;
+//----------------------------
 
-
-void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig = "ppConfig.json"){
+void dcafilterplot(std::string folder, double IVMmin, double IVMmax, TString fnconfig = "../ppConfig.json"){
 
   //LOAD DATA
 
-  std::string label = "dcacutoff_1_" + std::to_string(cutoff);
-
+  std::string label = "_alpha" + std::to_string(alpha) +"_xy"+std::to_string(acc_xy) + "_z" + std::to_string(acc_z);
 
   // get helpers and configuration
   ppHelpers pph;
@@ -28,8 +32,8 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
   pph.getHistos(hs1d, hs2d);
 
   //load histograms
-  std::string histofilename = "histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
-  TFile histofile(histofilename.c_str(), "OPEN");
+  std::string histofilename = "histograms/"+folder+"histos_alpha" + std::to_string(alpha) + "_xy" + std::to_string(acc_xy) + "_z" + std::to_string(acc_z) + ".root";
+  TFile histofile(histofilename.c_str(), "READ");
 
   int len_1 = hs1d.size();
   int len_2 = hs2d.size();
@@ -53,7 +57,7 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
 
   // prepare canvas
   TCanvas *cv = new TCanvas();
-  std::string pdfname = "pdfs/ppEvents_"+label+".pdf";
+  std::string pdfname = "pdfs/"+folder+"ppEvents_"+label+".pdf";
   cv->SaveAs((pdfname+"[").data());
 
   TLatex txt;
@@ -70,14 +74,30 @@ void dcafilterplot(double cutoff, double IVMmin, double IVMmax, TString fnconfig
 }
 
 
-void analysecutoffs(double IVMmin, double IVMmax){
-  double startcutoff = 0.3;
+void analysealphas(double IVMmin, double IVMmax){
+  double startalpha = 0.3;
   double stepsize = 0.15;
   double n_steps = 14;
-  double cutoff;
+
+  std::string folder = "varyalpha/";
   for (int i=0; i<n_steps; i++){
-    cutoff = startcutoff + i*stepsize;
-    dcafilterplot(cutoff, IVMmin, IVMmax);
-    std::cout << "cutoff " << cutoff << " plotted." << std::endl ;
+    alpha = startalpha + i*stepsize;
+    dcafilterplot(folder, IVMmin, IVMmax);
+    std::cout << "alpha " << alpha << " plotted." << std::endl ;
   }
+}
+
+void analysexyz(double IVMmin, double IVMmax){
+  const double product = 15.0e-03 * 12.5e-03; //surface of ellipse will be kept constant
+  double start_acc_xy = 3.0e-03;
+  double stepsize = 2.0e-03;
+  double n_steps = 15;
+  std::string folder = "varyxyz/";
+  for (int i=0; i<n_steps; i++){
+    acc_xy = start_acc_xy + i*stepsize;
+    acc_z = product/acc_xy;
+    dcafilterplot(folder, IVMmin, IVMmax);
+    std::cout << "alpha " << alpha << "done." << std::endl ;
+  }
+
 }

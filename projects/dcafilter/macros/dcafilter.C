@@ -10,7 +10,8 @@
 #include "TVector3.h"
 
 #include "ppHelpers.h"
-
+double acc_xy = 15.0e-03;
+double acc_z = 12.5e-03;
 
 // run with
 //  root -q -b 'processppEvents.C("LHC22_pass7_skimmed", "RF_LHC22_pass7_skimmed.txt")'
@@ -29,11 +30,11 @@
 //    LHC24_pass1_MinBias
 //
 // auto fnames = std::string("rootfiles.txt");
-void processppEvents(std::string label, std::string fnames, double cutoff, TString fnconfig = "ppConfig.json")
+void processppEvents(std::string foldername, std::string fnames, double alpha, TString fnconfig = "ppConfig.json")
 {
 
   //safe data
-  std::string histofilename = "results/histograms/histos_cutoff" + std::to_string(cutoff) + ".root";
+  std::string histofilename = "results/histograms/"+ foldername + "histos_alpha"+ std::to_string(alpha) + "_xy" + std::to_string(acc_xy) + "_z" + std::to_string(acc_z) + ".root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
@@ -59,9 +60,9 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
     ch->GetEntry(ii);
 
     
-    /*if ((ii % 10000)== 0){
+    if ((ii % 10000)== 0){
       std::cout << ii << " of " << nEvents2Process << std::endl;
-    } else {
+    }/* else {
       continue;
     }*/
    
@@ -82,7 +83,7 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
     if (VtxITSTPC == 1) hs1d[0]->Fill(8., 1.);
     
     // event selections 
-    if (!pph.isGoodEvent(ppc, cutoff))
+    if (!pph.isGoodEvent(ppc, alpha, acc_xy, acc_z))
     {
       continue;
     }
@@ -178,16 +179,32 @@ void processppEvents(std::string label, std::string fnames, double cutoff, TStri
 }
 
 
-void varycutoff(){
-  double startcutoff = 100.0;
+void varyalpha(){
+  double startalpha = 100.0;
   double stepsize = 0.10;
   double n_steps = 1;
-  double cutoff;
-  std::string label;
+  double alpha;
   for (int i=0; i<n_steps; i++){
-    cutoff = startcutoff + i*stepsize;
-    label = "dcacutoff_1_" + std::to_string(cutoff);
-    processppEvents(label, "rootfiles.txt", cutoff);
-    std::cout << "cutoff " << cutoff << "done." << std::endl ;
+    alpha = startalpha + i*stepsize;
+    processppEvents("varyalpha/", "ressources/rootfiles.txt", alpha);
+    std::cout << "alpha " << alpha << "done." << std::endl ;
+  }
+}
+
+
+void vary_xy_z(){
+  double alpha = 0.6;
+
+  const double product = 15.0e-03 * 12.5e-03; //surface of ellipse will be kept constant
+
+  double start_acc_xy = 3.0e-03;
+  double stepsize = 2.0e-03;
+  double n_steps = 15;
+  
+  for (int i=0; i<n_steps; i++){
+    acc_xy = start_acc_xy + i*stepsize;
+    acc_z = product/acc_xy;
+    processppEvents("varyxyz/","ressources/rootfiles.txt", alpha);
+    std::cout << "alpha " << alpha << "done." << std::endl ;
   }
 }
