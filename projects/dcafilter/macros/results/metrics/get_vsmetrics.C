@@ -17,7 +17,8 @@ const double acc_xy_reset = 0.015;
 const double acc_z_reset = 0.0125;
 
 //set alpha when using getxyzvsmetrics()
-const double alpha_reset = 0.6;
+const double alpha_reset_xyz = 0.6;
+const double alpha_reset_2d = 1.0;
 
 //---------------------------------------
 double alpha;
@@ -64,6 +65,7 @@ std::vector<double> get_abct(std::string folder){
 
   TH1D* ivmhisto = loadhisto(folder, 1);
   double t = ivmhisto->Integral();
+  std::cout << t << std::endl;
 
   TF1* f = new TF1("f","pol1(0)+gaus(2)", IVMmin, IVMmax);
 
@@ -179,7 +181,7 @@ void getalphasvsmetrics(){
 
 void getxyzvsmetrics(){
     std::string folder = "varyxyz/";
-    alpha = alpha_reset;
+    alpha = alpha_reset_xyz;
 
     double metric;
     ofstream alphaxyzvsmetrics("ressources/varyxyz/alpha_xy_z_a_b_c_t.txt");
@@ -193,5 +195,22 @@ void getxyzvsmetrics(){
         acc_z = product/acc_xy;
         std::vector<double> abct_1 = get_abct(folder);
         alphaxyzvsmetrics << alpha << "," << acc_xy << "," << acc_z << "," << abct_1[0] << "," << abct_1[1] << "," << abct_1[2] << "," << abct_1[3] << std::endl;
+    }
+}
+
+void get2dvsmetrics(){
+    std::string folder = "2d/";
+    alpha = alpha_reset_2d;
+
+    double metric;
+    ofstream alphaxyzvsmetrics("ressources/2d/alpha_xy_z_a_b_c_t.txt");
+
+    for (int i=1; i<12; i++){
+      for(int j=1; j<12; j++){
+        acc_xy = 0.0 + 0.0025*i;
+        acc_z = 0.0 + 0.0025*j;
+        std::vector<double> abct_1 = get_abct(folder);
+        alphaxyzvsmetrics << alpha << "," << acc_xy << "," << acc_z << "," << abct_1[0] << "," << abct_1[1] << "," << abct_1[2] << "," << abct_1[3] << std::endl;
+    }
     }
 }
