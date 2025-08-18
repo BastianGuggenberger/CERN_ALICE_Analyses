@@ -1,6 +1,9 @@
 DCA FILTER:
     DCA Filter is a project for filtering out kaon events from a dataset of proton-proton collisions registered by the CERN-ALICE Detector. The filter resticts the DCA-xy and DCA-z properties. The performance of the filter for varying xy and z DCA-tolerances is tested and also documented in this project.
 
+SUPPORT:
+    email: bastian.guggenberger@aon.at
+
 DEPENDENCIES:
     -ROOT:
         software framework from CERN.
@@ -8,7 +11,7 @@ DEPENDENCIES:
     -rapidjson
 
     -Python Libraries:
-        numpy, matplotlib.pyplot, qt-main, pyqt, qt-wayland
+        numpy, matplotlib.pyplot
 
 
 INSTALLATION:
@@ -126,3 +129,4 @@ PROJECT STRUCTURE:
         Output:
         comparison.pdf
         (results/comparisons/graph_pdfs/...)
+
