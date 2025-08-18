@@ -34,13 +34,12 @@ const double alpha = 1.0;
 //    LHC24_pass1_MinBias
 //
 // auto fnames = std::string("rootfiles.txt");
-void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", TString fnconfig = "ppConfig.json")
+void dcafilter_2(std::string fnames="ressources/rootfiles.txt", TString fnconfig = "ppConfig.json")
 {
   //variables:
   bool goodtuple;
   double ivm_mass;
   double trksgnprdct;
-  double acc_xy = 0.0 + 0.0025* i;
 
   // get helpers and configuration
   TH1::AddDirectory(kFALSE);
@@ -51,14 +50,14 @@ void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", T
   auto ch = pph.getChain(fnames);
 
   //prepare histograms
-  std::cout <<"analysing "<< i << "/11: " <<"preparing histograms... " << std::endl;
-  std::array<std::vector<TH1D*>, 12> H1{};
-  for (int j=1; j<12; j++){
+  //std::cout <<"analysing "<< i << "/11: " <<"preparing histograms... " << std::endl;
+  std::array<std::array<std::vector<TH1D*>, 12>, 12> H1{};
+  for(int i = 1; i<12; i++){
+  for(int j=1; j<12; j++){
     std::vector<TH1D*> hs1d_vec;
-    double acc_z = 0.0 + 0.0025* j;
     pph.getHistos(hs1d_vec);
-    H1[j] = hs1d_vec;
-  }
+    H1[i][j] = hs1d_vec;
+  }}
 
   
   // loop over events
@@ -70,9 +69,9 @@ void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", T
   for (auto ii = 0; ii<nEvents2Process; ii++)
   {
     ch->GetEntry(ii);
-    if ((ii % 1000000)== 0){
+    if ((ii % 10000)== 0){
       totalend = std::chrono::system_clock::now();
-      std::cout <<"analysing "<< i << "/11: " << ((static_cast<float>(ii))/nEvents2Process) * 100 << " %" << std::endl;
+      std::cout <<((static_cast<float>(ii))/nEvents2Process) * 100 << " %" << std::endl;
       //std::cout <<  "total: " << totalend-totalstart << std::endl;
       totalstart = std::chrono::system_clock::now();
     }
@@ -98,7 +97,9 @@ void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", T
     
 
     //inner loop: vary xy and z
+    for (int i=1; i<12; i++){
       for (int j=1; j<12; j++){
+        double acc_xy = 0.0 + 0.0025* i;
         double acc_z = 0.0 + 0.0025* j;
 
         // dca filter
@@ -112,20 +113,22 @@ void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", T
         {
           // ULS and LS
           if (trksgnprdct < 0) { 
-            (H1[j])[0]->Fill(ivm_mass, 1.);
+            (H1[i][j])[0]->Fill(ivm_mass, 1.);
           } else {
-            (H1[j])[1]->Fill(ivm_mass, 1.);
+            (H1[i][j])[1]->Fill(ivm_mass, 1.);
           }
         }
       }
       }
+    }
     
-
+    for (int i=1; i<12; i++){
       for (int j=1; j<12; j++){
         std::cout <<"analysing "<< i << "/11: " <<"safing histograms as root files... " << std::endl;
 
+        double acc_xy = 0.0 + 0.0025* i;
         double acc_z = 0.0 + 0.0025* j;
-        int len_1 = (H1[j]).size();
+        int len_1 = (H1[i][j]).size();
 
         std::string histofilename = "results/histograms/2d/histos_alpha"+ std::to_string(alpha) + "_xy" + std::to_string(acc_xy) + "_z" + std::to_string(acc_z) + ".root";
         TFile histofile(histofilename.c_str(), "RECREATE");
@@ -133,21 +136,15 @@ void dcafilter_loopoverjs(int i,std::string fnames="ressources/rootfiles.txt", T
 
         for (int a=0; a<len_1; a++){
           std::string histoname = "hs1d_" + std::to_string(a);
-          histofile.WriteObject((H1[j])[a], histoname.c_str());
-          delete (H1[j])[a];
+          histofile.WriteObject((H1[i][j])[a], histoname.c_str());
+          delete (H1[i][j])[a];
         }
 
-        (H1[j]).clear();
+        (H1[i][j]).clear();
       }
+    }
     
 
   delete ch;
   delete ppc;
-}
-
-void dcafilter_2(){
-  for(int i = 1; i<12; i++){
-    dcafilter_loopoverjs(i);
-    std::cout << std::endl << i << "/11 done" << std::endl << std::endl;
-  }
 }

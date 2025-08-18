@@ -60,17 +60,41 @@ with open(sourcepath) as f:
 #---------------------------------------------------
 #MAIN:
 
-aratios = np.zeros((12,12))
-bratios = np.zeros((12,12))
 
+dcas = [0.00 + 0.0025*i for i in range(1,12)]
+
+
+#PLOT A-ratios:
+
+aratios = np.zeros((12,12))
 for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
-    print(i,j)
     aratios[i,j] = avec[n]/a_0
 
+plt.figure(figsize=(8,6))
+plt.imshow(aratios,cmap ="viridis", extent=[dcas[0],dcas[-1],dcas[0],dcas[-1]], origin="lower")
+plt.xlabel("dca_xy tolerance in mm",labelpad=15)
+plt.ylabel("dca_z tolerance in mm", labelpad=15)
+plt.title("kaon filter performance for varying dca_xy and dca_z tolerances",fontweight="bold", pad = 20)
+colorbar = plt.colorbar()
+colorbar.set_label("remaining kaon events A_1 / original kaon events A_0", fontweight="bold",labelpad=15)
+plt.subplots_adjust(top =0.85,bottom=0.15)
+plt.savefig("results/2dcolorplot_Aratios.png", dpi=300)
 
-#PLOT:
-plt.imshow(aratios,cmap ="viridis", origin="lower")
-plt.colorbar(label="emaining kaon events A_1 / original kaon events A_0")
-plt.show()
 
+#PLOT B-ratios:
+
+bratios = np.zeros((12,12))
+for n in range(len(xyvec)):
+    i, j = get_i_j(xyvec[n],zvec[n])
+    bratios[i,j] = bvec[n]/b_0
+
+plt.figure(figsize=(8,6))
+plt.imshow(bratios,cmap ="viridis", extent=[dcas[0],dcas[-1],dcas[0],dcas[-1]], origin="lower")
+plt.xlabel("dca_xy tolerance in mm",labelpad=15)
+plt.ylabel("dca_z tolerance in mm", labelpad=15)
+plt.title("kaon filter performance for varying dca_xy and dca_z tolerances",fontweight="bold", pad = 20)
+colorbar = plt.colorbar()
+colorbar.set_label("remaining non-kaon events B_1 / original non-kaon events B_0", fontweight="bold",labelpad=15)
+plt.subplots_adjust(top =0.85,bottom=0.15)
+plt.savefig("results/2dcolorplot_Bratios.png", dpi=300)

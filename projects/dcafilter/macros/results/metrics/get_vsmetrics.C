@@ -62,8 +62,11 @@ TH1D* loadhisto(std::string folder, int entry){
 
 
 std::vector<double> get_abct(std::string folder){
-
-  TH1D* ivmhisto = loadhisto(folder, 1);
+  int entry = 1;
+  if(folder=="2d/"){
+    entry = 0;
+  }
+  TH1D* ivmhisto = loadhisto(folder, entry);
   double t = ivmhisto->Integral();
   std::cout << t << std::endl;
 
