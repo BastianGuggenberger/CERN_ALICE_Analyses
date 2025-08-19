@@ -16,9 +16,8 @@ numpy, matplotlib.pyplot
 
 ## INSTALLATION:
 ### LINUX:
-
-1. clone repository:
 ```bash
+#1. clone repository:
 git clone https://github.com/BastianGuggenberger/Projektarbeit_SMI
 
 #2. navigate to project directory
