@@ -1,6 +1,7 @@
 //Fills Histograms of pp Events with mixed events
 
 
+
 #include "Riostream.h"
 #include "TFile.h"
 #include "TChain.h"
@@ -31,6 +32,10 @@
 // auto fnames = std::string("rootfiles.txt");
 void mixedevents(TString fnconfig = "ppConfig.json")
 {
+
+  int nbIVM = 4000;
+  float bIVMmin = 0.;
+  float bIVMmax = 5.;
   //safe data
   std::string histofilename = "results/histograms/histo_mixedevents.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
@@ -43,10 +48,11 @@ void mixedevents(TString fnconfig = "ppConfig.json")
   auto ch = pph.getChain("ressources/rootfiles.txt");
 
   // prepare histograms
-  std::vector<TH1D*> hs1d;
-  std::vector<TH2D*> hs2d;
+  //std::vector<TH1D*> hs1d;
+  //std::vector<TH2D*> hs2d;
+  TH1D* hs1d = new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax);
 
-  pph.getHistos(hs1d, hs2d);
+  //pph.getHistos(hs1d, hs2d);
 
   // prepare structures to hold variables as function of run number
   
@@ -57,18 +63,13 @@ void mixedevents(TString fnconfig = "ppConfig.json")
   std::vector<ROOT::Math::PxPyPzMVector> pxpypzm_archive;
   std::vector<double> trksign_archive;
 
-  for (auto ii = 0; ii<nEvents2Process; ii++)
+  for (auto ii = 0; ii<nEvents2Process; ii+=100)
   {
-    ch->GetEntry(ii);
-
-    
-    if ((ii % 100)== 0){
-      if((ii & 1000000)==0){
+      if((ii % 1000000)==0){
         std::cout << float(ii)/float(nEvents2Process)*100 << " % " << std::endl;
       }
-    } else {
-      continue;
-    }
+    
+    ch->GetEntry(ii);
     
     // event selections 
     if (!pph.isGoodEvent(ppc))
@@ -77,46 +78,28 @@ void mixedevents(TString fnconfig = "ppConfig.json")
     }
     
     // check if event has 2 tracks which are compatible with PID hypothesis
-    if ( pph.isGoodTuple(ppc, masses, true) ){
-
+    if (!pph.isGoodTuple(ppc, masses, true) ){
+      continue;
     }
-    {
-      ROOT::Math::PxPyPzMVector ivm_0(TrkPx[0], TrkPy[0], TrkPz[0], masses[0]);
-      ROOT::Math::PxPyPzMVector ivm;
-      double trksign = TrkSign[0];
-      for (int ii=0; ii<pxpypzm_archive.size(); ii++)
+    
+    ROOT::Math::PxPyPzMVector ivm_0(TrkPx[0], TrkPy[0], TrkPz[0], masses[0]);
+    ROOT::Math::PxPyPzMVector ivm;
+    double trksign = TrkSign[0];
+    for (int ii=0; ii<pxpypzm_archive.size(); ii++)
       {
         ivm = ivm_0+pxpypzm_archive[ii];
         // ULS and LS
         if (trksign*trksign_archive[ii] < 0) {
           // count candidates
-          hs1d[0]->Fill(9., 1.);
-          hs1d[1]->Fill(ivm.M(), 1.);
-          hs2d[10]->Fill(ivm.M(), ivm.Pt(), 1.);
-        } else {
-          hs1d[2]->Fill(ivm.M(), 1.);
+          hs1d->Fill(ivm.M(), 1.);
         }
       }
-      
-      hs2d[14]->Fill(ivm.M(), pph.acoplanarity(), 1.);
-    }
     pxpypzm_archive.push_back(ROOT::Math::PxPyPzMVector(TrkPx[1], TrkPy[1], TrkPz[1], masses[1]));
     trksign_archive.push_back(TrkSign[1]);
   }
 
-
-  int len_1 = hs1d.size();
-  int len_2 = hs2d.size();
-
-  for (int i=0; i<len_1; i++){
-    std::string histoname = "hs1d_" + std::to_string(i);
-    histofile.WriteObject(hs1d[i], histoname.c_str());
-  }
-
-  for (int i=0; i<len_2; i++){
-    std::string histoname = "hs2d_" + std::to_string(i);
-    histofile.WriteObject(hs2d[i], histoname.c_str());
-  }
+  std::string histoname = "hs1d";
+  histofile.WriteObject(hs1d, histoname.c_str());
 
   delete ch;
 

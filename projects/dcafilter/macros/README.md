@@ -6,14 +6,9 @@ The filter resticts the DCA-xy and DCA-z properties. The performance of the filt
 email: bastian.guggenberger@aon.at
 
 ## DEPENDENCIES:
-### -ROOT:
-software framework from CERN.
-
-### -rapidjson
-
-### -Python Libraries:
-numpy, matplotlib.pyplot
-
+- ROOT: software framework from CERN.  
+- rapidjson  
+- Python Libraries: numpy, matplotlib.pyplot  
 
 ## INSTALLATION:
 ### LINUX:

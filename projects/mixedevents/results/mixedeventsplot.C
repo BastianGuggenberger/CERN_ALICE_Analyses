@@ -13,60 +13,70 @@
 
 //----------------------------
 
-void mixedeventsplot(double IVMmin, double IVMmax, TString fnconfig = "../ppConfig.json"){
+void plot(std::string label, TString fnconfig = "../ppConfig.json"){
 
-  //LOAD DATA
-
-  std::string label = "mixed_events";
-
-  // get helpers and configuration
-  ppHelpers pph;
-  ppConfiguration* ppc = new ppConfiguration(fnconfig);
-
-  // prepare histograms
-  std::vector<TH1D*> hs1d;
-  std::vector<TH2D*> hs2d;
-  pph.getHistos(hs1d,hs2d);
-
-  //load histograms
-  std::string histofilename = "histograms/histo_mixedevents.root";
+  //load histogram
+  std::string histofilename = "histograms/"+label+".root";
   TFile histofile(histofilename.c_str(), "READ");
 
-  int len_1 = hs1d.size();
-  int len_2 = hs2d.size();
-
-
-  for (int i=0; i<len_1; i++){
-    std::string histoname = "hs1d_" + std::to_string(i);
-    hs1d[i]= static_cast<TH1D*>(histofile.Get(histoname.c_str()));
-    //std::cout << i << std::endl;
-  }
-
-  
-  for (int i=0; i<len_2; i++){
-    std::string histoname = "hs2d_" + std::to_string(i);
-    hs2d[i] = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
-    //std::cout << i << std::endl;
-  }
-
-
+  std::string histoname = "hs1d";
+  TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
 
   //PLOT
 
   // prepare canvas
   TCanvas *cv = new TCanvas();
-  std::string pdfname = "pdfs/ppEvents_"+label+".pdf";
-  cv->SaveAs((pdfname+"[").data());
+  histo->Draw();
+  std::string outputname = "pngs/"+label+".png";
+  cv->SaveAs(outputname.c_str());
 
-  TLatex txt;
-  txt.SetTextSize(0.03);
-  txt.SetTextAlign(32);
+}
 
-  // plot histograms
-  auto annText = (TString)label;
-  pph.plotHistograms(cv, annText, hs1d,hs2d, pdfname, IVMmin, IVMmax);
- 
-  // clean up
-  cv->SaveAs((pdfname+"]").data());
 
+void plotbackground(){
+  std::string label = "histo_mixedevents";
+  plot(label);
+}
+
+void plotblueprint(){
+  std::string label = "histo_ivmblueprint";
+  plot(label);
+}
+
+void mixedeventsplot(){
+  //LOAD DATA
+
+  //load histograms
+  std::string backgroundfilename = "histograms/histo_scaledbackground.root";
+  TFile backgroundfile(backgroundfilename.c_str(), "READ");
+
+  std::string blueprintfilename = "histograms/histo_scaledblueprint.root";
+  TFile blueprintfile(blueprintfilename.c_str(), "READ");
+
+  std::string histoname = "hs1d";
+  TH1D* ivmbackground = static_cast<TH1D*>(backgroundfile.Get(histoname.c_str()));
+  TH1D* ivmblueprint = static_cast<TH1D*>(blueprintfile.Get(histoname.c_str()));
+
+  //PLOT
+
+  // prepare canvas
+  TCanvas *cv = new TCanvas();
+
+  ivmblueprint->SetLineColor(kBlue);
+  ivmblueprint->Draw();
+
+  ivmbackground->SetLineColor(kRed);
+  ivmbackground->Draw("SAME");
+  std::string pngname = "pngs/scaledivmbackground.png";
+  cv->SaveAs(pngname.c_str());
+
+  TCanvas *cv2 = new TCanvas("cv2","log");
+  gPad->SetLogy();
+  ivmblueprint->SetLineColor(kBlue);
+  ivmblueprint->Draw();
+
+  ivmbackground->SetLineColor(kRed);
+  ivmbackground->Draw("SAME");
+  pngname = "pngs/log_scaledivmbackground.png";
+  cv2->SaveAs(pngname.c_str());
 }
