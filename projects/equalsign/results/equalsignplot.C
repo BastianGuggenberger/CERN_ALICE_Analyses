@@ -1,4 +1,4 @@
-//plots the histograms built by mixedevents.C
+//plots the histograms built by equalsign.C
 
 #include "Riostream.h"
 #include "TFile.h"
@@ -7,6 +7,7 @@
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TVector3.h"
+#include "../ppHelpers_equalsign.h"
 
 //----------------------------
 
@@ -33,7 +34,7 @@ void plot(std::string label, TString fnconfig = "../ppConfig.json"){
 
 
 void plotbackground(){
-  std::string label = "histo_mixedevents";
+  std::string label = "histo_equalsign";
   plot(label);
 }
 
@@ -42,11 +43,11 @@ void plotblueprint(){
   plot(label);
 }
 
-void mixedeventsplot(){
+void equalsignplot(){
   //LOAD DATA
 
   //load histograms
-  std::string backgroundfilename = "histograms/histo_scaledbackground.root";
+  std::string backgroundfilename = "histograms/histo_scaledequalsign.root";
   TFile backgroundfile(backgroundfilename.c_str(), "READ");
 
   std::string blueprintfilename = "histograms/histo_scaledblueprint.root";
@@ -66,7 +67,7 @@ void mixedeventsplot(){
 
   ivmbackground->SetLineColor(kRed);
   ivmbackground->Draw("SAME");
-  std::string pngname = "pngs/scaledivmbackground.png";
+  std::string pngname = "pngs/scaledivmequalsign.png";
   cv->SaveAs(pngname.c_str());
 
   TCanvas *cv2 = new TCanvas("cv2","log");
@@ -76,6 +77,6 @@ void mixedeventsplot(){
 
   ivmbackground->SetLineColor(kRed);
   ivmbackground->Draw("SAME");
-  pngname = "pngs/log_scaledivmbackground.png";
+  pngname = "pngs/log_scaledivmequalsign.png";
   cv2->SaveAs(pngname.c_str());
 }

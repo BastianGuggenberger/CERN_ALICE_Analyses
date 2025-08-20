@@ -1,4 +1,4 @@
-//script for scaling the background IVM based on the mixed events analysis
+//script for scaling the background IVM based on the equalsign analysis
 //an area is chosen where the background is dominating, to derive the correct scale for the background
 
 #include "Riostream.h"
@@ -9,7 +9,7 @@
 #include "TH2D.h"
 #include "TVector3.h"
 
-#include "ppHelpers_mixedevents.h"
+#include "ppHelpers_equalsign.h"
 
 void getivmblueprint(TString fnconfig = "ppConfig.json"){
 
@@ -101,7 +101,7 @@ void scale(TH1D* background, TH1D* blueprint, int minbin, int maxbin, bool downs
 void scalebackground(double comparison_minimum,double comparison_maximum){
 
   //load histograms
-  std::string backgroundfilename = "results/histograms/histo_mixedevents.root";
+  std::string backgroundfilename = "results/histograms/histo_equalsign.root";
   TFile backgroundfile(backgroundfilename.c_str(), "READ");
 
   std::string blueprintfilename = "results/histograms/histo_ivmblueprint.root";
@@ -132,11 +132,11 @@ void scalebackground(double comparison_minimum,double comparison_maximum){
   scale(ivmbackground,ivmblueprint,minbin,maxbin,downscale);
 
   //safe scaled histo(s)
-  std::string scaledbackgroundname = "results/histograms/histo_scaledbackground.root";
+  std::string scaledbackgroundname = "results/histograms/histo_scaledequalsign.root";
   TFile scaledbackgroundfile(scaledbackgroundname.c_str(), "RECREATE");
   scaledbackgroundfile.WriteObject(ivmbackground, histoname.c_str());
 
   std::string scaledblueprintname = "results/histograms/histo_scaledblueprint.root";
   TFile scaledblueprintfile(scaledblueprintname.c_str(), "RECREATE");
   scaledblueprintfile.WriteObject(ivmblueprint, histoname.c_str());
-} 
+}
