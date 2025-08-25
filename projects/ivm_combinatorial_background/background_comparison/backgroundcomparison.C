@@ -21,7 +21,7 @@ std::vector<std::string> labels = {"equal-charge-based background","mixed-events
 
 //----------------------------
 
-void plot(std::string name_folder, std::string name_file, bool dim2 = false, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
+void plotsingle(std::string name_folder, std::string name_file, bool dim2 = false, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
   //load histogram
   std::string histofilename = "../"+name_folder+"/results/histograms/histo_"+name_file+".root";
   TFile histofile(histofilename.c_str(), "READ");
@@ -43,89 +43,22 @@ void plot(std::string name_folder, std::string name_file, bool dim2 = false, TSt
 
 }
 
-void scale(TH1D* background, TH1D* blueprint, int minbin, int maxbin, bool downscale){
-  int iterations = 0;
-  bool repeat = true;
-  if(downscale){
-    //downscale
-    while(repeat){
-      iterations+=1;
-      background->Scale(0.99);
-      repeat = false;
-      for (int i = minbin; i<=maxbin; i++){
-        if((background->GetBinContent(i) > blueprint->GetBinContent(i)) && blueprint->GetBinContent(i)>0){repeat=true;}
-      }
-    }
-    std::cout<< "downscaling done, " << iterations << " iterations" <<std::endl;
-  }else{
-    //upscale
-    while(repeat){
-      iterations+=1;
-      background->Scale(1.01);
-      for (int i = minbin; i<=maxbin; i++){
-        if(background->GetBinContent(i) > blueprint->GetBinContent(i)){repeat=false;}
-      }
-    }
-    std::cout<< "upscaling done, " << iterations << " iterations" <<std::endl;
-  }
-}
-
-
-void backgroundcomparison(double comparison_minimum,double comparison_maximum){
-
-  //load unscaled histograms
-
-  std::string histoname = "hs1d";
-  std::vector<TH1D*> histograms;
-  for (int i=0; i<names_folders.size(); i++){
-    std::string filename = "../" + names_folders[i] +"/results/histograms/histo_" + names_files[i] + ".root";
-    TFile file(filename.c_str(),"READ");
-    histograms.push_back(static_cast<TH1D*>(file.Get(histoname.c_str())));
-    histograms[histograms.size()-1]->SetDirectory(nullptr);
-  }
-  std::string filename = "results/ivmblueprint/histo_ivmblueprint.root";
-  TFile blueprintfile(filename.c_str(),"READ");
-  TH1D* blueprint = static_cast<TH1D*>(blueprintfile.Get(histoname.c_str()));
-
-  //scale histograms
-  bool repeat = true;
-  int minbin = blueprint->FindBin(comparison_minimum);
-  int maxbin = blueprint->FindBin(comparison_maximum);
-
-  for (TH1D* background: histograms){
-    bool downscale=false;
-    for (int i = minbin; i<=maxbin; i++){
-      if(background->GetBinContent(i) > blueprint->GetBinContent(i)){
-        downscale=true;
-      }
-    }
-    scale(background,blueprint,minbin,maxbin,downscale);
-  }
-
-  //safe scaled histos
-  for (int i=0; i<names_folders.size(); i++){
-    std::string filename = "results/scaledhistograms/histo_scaled" + names_files[i] + ".root";
-    TFile file(filename.c_str(),"RECREATE");
-    file.WriteObject(histograms[i],histoname.c_str());
-  }
-
-  std::string scaledblueprintname = "results/scaledhistograms/histo_scaledblueprint.root";
-  TFile scaledblueprintfile(scaledblueprintname.c_str(), "RECREATE");
-  scaledblueprintfile.WriteObject(blueprint, histoname.c_str());
-
-
-  //PLOT
+void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
+  //rebin for better visibility
+  blueprint->Rebin(4);
+  for (auto* h : histograms) h->Rebin(4);
 
   // prepare canvas
   TCanvas *cv = new TCanvas();
 
-  blueprint->GetXaxis()->SetRangeUser(0.0, 2.5);
-  blueprint->GetYaxis()->SetRangeUser(0.0, 5000);
+  blueprint->GetXaxis()->SetRangeUser(0.0, 2.0);
+  blueprint->GetYaxis()->SetRangeUser(0.0, 30000);
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
   for (int i=0; i<names_files.size(); i++){
     histograms[i]->SetLineColor(colors[i]);
+    histograms[i]->SetFillColorAlpha(colors[i], 0.25);
     histograms[i]->Draw("SAME");
   }
 
@@ -145,12 +78,13 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   gPad->SetLogy();
 
   blueprint->SetMinimum(0.001);
-  blueprint->GetXaxis()->SetRangeUser(0.0, 2.5);
-  blueprint->GetYaxis()->SetRangeUser(0.001, 5000);
+  blueprint->GetXaxis()->SetRangeUser(0.0, 3.5);
+  blueprint->GetYaxis()->SetRangeUser(0.001, 30000);
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
   for (int i=0; i<names_files.size(); i++){
+    histograms[i]->SetFillColorAlpha(colors[i], 0.25);
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->Draw("SAME");
   }
@@ -160,3 +94,112 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   cv2->SaveAs(pngname.c_str());
 }
 
+
+void scale(std::vector<TH1D*> histos2scale, TH1D* blueprint, int minbin, int maxbin, bool downscale){
+  int iterations = 0;
+  bool repeat = true;
+  if(downscale){
+    //downscale
+    while(repeat){
+      iterations+=1;
+      for(TH1D* histo2scale: histos2scale){
+        histo2scale->Scale(0.99);
+      }
+
+      //find out if repeating is necessary
+      repeat = false;
+      for(TH1D* histo2scale: histos2scale){
+        for (int i = minbin; i<=maxbin; i++){
+          if((histo2scale->GetBinContent(i) > blueprint->GetBinContent(i)) && blueprint->GetBinContent(i)>0){repeat=true;}
+        }
+      }
+
+    }
+    std::cout<< "downscaling done, " << iterations << " iterations" <<std::endl;
+  }else{
+    //upscale
+    while(repeat){
+      iterations+=1;
+      for(TH1D* histo2scale: histos2scale){
+        histo2scale->Scale(1.01);
+      }
+
+      //find out if repeating is necessary
+      for(TH1D* histo2scale: histos2scale){
+        for (int i = minbin; i<=maxbin; i++){
+          if(histo2scale->GetBinContent(i) > blueprint->GetBinContent(i)){repeat=false;}
+        }
+      }
+    }
+    std::cout<< "upscaling done, " << iterations << " iterations" <<std::endl;
+  }
+}
+
+void scale_integral(TH1D* bck2scale, TH1D* bckdefault, int minbin, int maxbin){
+
+  int iterations = 0;
+  if(bck2scale->Integral()>bckdefault->Integral()){
+    //downscale
+    while(bck2scale->Integral()>bckdefault->Integral()){
+      iterations+=1;
+      bck2scale->Scale(0.99);
+    }
+    std::cout<< "integral-downscaling done, " << iterations << " iterations" <<std::endl;
+  }else{
+    //upscale
+    while(bck2scale->Integral()<bckdefault->Integral()){
+      iterations+=1;
+      bck2scale->Scale(1.01);
+    }
+    std::cout<< "integral-upscaling done, " << iterations << " iterations" <<std::endl;
+  }
+}
+
+void backgroundcomparison(double comparison_minimum,double comparison_maximum){
+  //load unscaled histograms
+
+  std::string histoname = "hs1d";
+  std::vector<TH1D*> histograms;
+  for (int i=0; i<names_folders.size(); i++){
+    std::string filename = "../" + names_folders[i] +"/results/histograms/histo_" + names_files[i] + ".root";
+    TFile file(filename.c_str(),"READ");
+    histograms.push_back(static_cast<TH1D*>(file.Get(histoname.c_str())));
+    histograms[histograms.size()-1]->SetDirectory(nullptr);
+  }
+  std::string filename = "results/ivmblueprint/histo_ivmblueprint.root";
+  TFile blueprintfile(filename.c_str(),"READ");
+  TH1D* blueprint = static_cast<TH1D*>(blueprintfile.Get(histoname.c_str()));
+
+  int minbin = blueprint->FindBin(comparison_minimum);
+  int maxbin = blueprint->FindBin(comparison_maximum);
+
+  //SCALE HISTOGRAMS:
+
+  //1. scale mixedeventshisto to fit under the blueprint
+  bool downscale=false;
+  for (int i = minbin; i<=maxbin; i++){
+    if(histograms[1]->GetBinContent(i) > blueprint->GetBinContent(i)){
+      downscale=true;
+    }
+  }
+  std::vector<TH1D*> histos2scale {histograms[1]};
+  scale(histos2scale,blueprint,minbin,maxbin,downscale);
+
+  //2. scale histograms to fit their integrals
+  for (int i=0; i<histograms.size(); i++){
+    if(i==1) continue; //mixedevents histo is the default histo.
+    scale_integral(histograms[i],histograms[1],minbin,maxbin);
+  }
+  plotallhistos(blueprint, histograms);
+
+  //3. scale histograms to fit under the blueprint
+  downscale=false;
+  for(TH1D* histogram: histograms){
+    for (int i = minbin; i<=maxbin; i++){
+      if(histogram->GetBinContent(i) > blueprint->GetBinContent(i)){
+        downscale=true;
+      }
+    }
+  }
+  scale(histograms,blueprint,minbin,maxbin,downscale);
+}
