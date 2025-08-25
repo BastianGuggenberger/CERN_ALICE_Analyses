@@ -1,11 +1,26 @@
+#pragma once
+
 // define constants and data items and include ppHelpers (-> pph)
 const int nmasses = 5;
 const int nelemsMax = 8;
 
-//const double acc_xy = 15.0e-03;
-//const double acc_z = 12.5e-03;
 #include "ppDataItems.h"
 #include "ppDataItems.C"
+#include "Riostream.h"
+#include "TFile.h"
+#include "TChain.h"
+#include "TCanvas.h"
+#include "TH1D.h"
+#include "TH2D.h"
+#include "TVector3.h"
+
+namespace helpers {
+  inline void coutpercentage(int ii, int nEvents2Process){
+    if ((ii % 10000)== 0){
+      std::cout <<"analysing... "<< float(ii)/float(nEvents2Process)*100 << " % " << std::endl;
+    }
+  }
+}
 
 class rnMaps
 {
@@ -241,7 +256,7 @@ class ppHelpers
       std::cout << "Number of events  : " << ch->GetEntries() << std::endl;
       
       // assign branches
-#include "ppBranchAssignment.h"
+      #include "ppBranchAssignment.h"
 
       // inspect branches
       auto branches = ch->GetListOfBranches();
@@ -344,6 +359,14 @@ class ppHelpers
         h->SetTitle("");
         h->SetStats(0);
       }
+    }
+
+    TH1D* getIVMhisto(){
+      int nbIVM = 4000;
+      float bIVMmin = 0.;
+      float bIVMmax = 5.;
+      TH1D* ivmhisto = new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax);
+      return ivmhisto;
     }
 
     // plot the default histograms
@@ -672,4 +695,3 @@ class ppHelpers
       return aco;
     }
 };
-
