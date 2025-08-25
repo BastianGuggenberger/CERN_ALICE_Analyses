@@ -11,7 +11,8 @@
 #include "TColor.h"
 #include <vector>
 
-std::vector<std::string> names = {"equalsign","mixedevents","rotatedtracks","morethan2tracks"};
+std::vector<std::string> names_folders = {"equalsign","mixedevents","rotatedtracks","morethan2tracks"};
+std::vector<std::string> names_files = {"equalsign","mixedevents","rotatedtracks_uniformsqrt","morethan2tracks"};
 std::vector<Color_t> colors = {kBlue,kRed,kGreen,kOrange};
 std::vector<std::string> labels = {"equal-charge-based background","mixed-events-based background","rotated-tracks-based background","morethan2tracks-based background"};
 
@@ -20,21 +21,24 @@ std::vector<std::string> labels = {"equal-charge-based background","mixed-events
 
 //----------------------------
 
-void plot(std::string label, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
-
+void plot(std::string name_folder, std::string name_file, bool dim2 = false, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
   //load histogram
-  std::string histofilename = "../"+label+"/results/histograms/histo_"+label+".root";
+  std::string histofilename = "../"+name_folder+"/results/histograms/histo_"+name_file+".root";
   TFile histofile(histofilename.c_str(), "READ");
 
-  std::string histoname = "hs1d";
-  TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
-
   //PLOT
-
-  // prepare canvas
+  std::string histoname = "hs1d";
   TCanvas *cv = new TCanvas();
-  histo->Draw();
-  std::string outputname = "results/solobackgrounds/"+label+".png";
+  if(dim2){
+    TH2D* histo = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
+    histo->RebinX(10.);
+    histo->RebinY(20.);
+    histo->Draw("COLZ");
+  }else{
+    TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
+    histo->Draw();
+  }
+  std::string outputname = "results/solobackgrounds/"+name_file+".png";
   cv->SaveAs(outputname.c_str());
 
 }
@@ -73,13 +77,13 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
 
   std::string histoname = "hs1d";
   std::vector<TH1D*> histograms;
-  for (std::string name: names){
-    std::string filename = "../" + name +"/results/histograms/histo_" + name + ".root";
+  for (int i=0; i<names_folders.size(); i++){
+    std::string filename = "../" + names_folders[i] +"/results/histograms/histo_" + names_files[i] + ".root";
     TFile file(filename.c_str(),"READ");
     histograms.push_back(static_cast<TH1D*>(file.Get(histoname.c_str())));
     histograms[histograms.size()-1]->SetDirectory(nullptr);
   }
-  std::string filename = "../mixedevents/results/histograms/histo_ivmblueprint.root";
+  std::string filename = "results/ivmblueprint/histo_ivmblueprint.root";
   TFile blueprintfile(filename.c_str(),"READ");
   TH1D* blueprint = static_cast<TH1D*>(blueprintfile.Get(histoname.c_str()));
 
@@ -99,8 +103,8 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   }
 
   //safe scaled histos
-  for (int i=0; i<names.size(); i++){
-    std::string filename = "results/scaledhistograms/histo_scaled" + names[i] + ".root";
+  for (int i=0; i<names_folders.size(); i++){
+    std::string filename = "results/scaledhistograms/histo_scaled" + names_files[i] + ".root";
     TFile file(filename.c_str(),"RECREATE");
     file.WriteObject(histograms[i],histoname.c_str());
   }
@@ -120,7 +124,7 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
-  for (int i=0; i<names.size(); i++){
+  for (int i=0; i<names_files.size(); i++){
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->Draw("SAME");
   }
@@ -128,7 +132,7 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   TLegend* leg = new TLegend(0.6,0.7,0.9,0.9); 
 
   leg->AddEntry(blueprint, "original ivm distribution", "l");
-  for (int i=0; i<names.size(); i++){
+  for (int i=0; i<names_folders.size(); i++){
     leg->AddEntry(histograms[i],labels[i].c_str(),"l");
   }
   leg->Draw();
@@ -146,7 +150,7 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
-  for (int i=0; i<names.size(); i++){
+  for (int i=0; i<names_files.size(); i++){
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->Draw("SAME");
   }
@@ -155,3 +159,4 @@ void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   leg->Draw();
   cv2->SaveAs(pngname.c_str());
 }
+

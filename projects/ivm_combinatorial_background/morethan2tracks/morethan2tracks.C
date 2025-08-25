@@ -1,43 +1,18 @@
 //Fills Histograms of pp Events with mixed events
-
-
-
-#include "Riostream.h"
-#include "TFile.h"
-#include "TChain.h"
-#include "TCanvas.h"
-#include "TH1D.h"
-#include "TH2D.h"
-#include "TVector3.h"
 #include <set>
-
 #include "../../resources/ppHelpers/ppHelpers.h"
-
-
-// run with
-//  root -q -b 'processppEvents.C("LHC22_pass7_skimmed", "RF_LHC22_pass7_skimmed.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin_small", "RF_LHC23_pass4_Thin_small.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin", "RF_LHC23_pass4_Thin.txt")'
-
-// Available datastes                  Events total    2pi candidates    2K candidates
-//    LHC22_pass7_skimmed               32'467'114
-//    LHC22_pass4_lowIR
-//    LHC22_pass4_highIR_Thin_sampling
-//    LHC22_pass4_highIR_Thin
-//    LHC23_pass4_skimmed                13'824'860
-//    LHC23_pass4_Thin_small             18'275'132
-//    LHC23_pass4_Thin                  529'246'110
-//    LHC24_pass1_skimmed               125'768'899
-//    LHC24_pass1_MinBias
-//
-// auto fnames = std::string("rootfiles.txt");
+#include "../../resources/ppPaths.h"
 
 std::vector<std::vector<int>> goodtuples_3 = {{1,2},{1,3},{2,3}};
 std::vector<std::vector<int>> goodtuples_4 = {{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}};
 
 
 std::vector<std::vector<int>> getgoodtuples(ppHelpers& pph,ppConfiguration* ppc,std::vector<std::vector<float>>& masses_vec){
+ 
+  std::vector<std::vector<int>> goodtuples_3 = {{1,2},{1,3},{2,3}};
+  std::vector<std::vector<int>> goodtuples_4 = {{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}};
   std::vector<std::vector<int>> goodtuples;
+
   if(NumContrib==3){
     goodtuples = goodtuples_3;
     for(int i=0; i<3; i++){
@@ -92,38 +67,31 @@ std::vector<std::vector<int>> getgoodtuples(ppHelpers& pph,ppConfiguration* ppc,
 
 
 
-void morethan2tracks(TString fnconfig = "ppConfig_morethan2tracks.json")
+void morethan2tracks()
 {
-
-  int nbIVM = 4000;
-  float bIVMmin = 0.;
-  float bIVMmax = 5.;
   //safe data
-  std::string histofilename = "results/histograms/histo_morethan2tracks.root";
+  std::string histofilename = "results/histograms/histo_morethan2tracks_new.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
   ppHelpers pph;
-  ppConfiguration* ppc = new ppConfiguration(fnconfig);
+  ppConfiguration* ppc = new ppConfiguration(path_json);
 
   // create a TChain
-  auto ch = pph.getChain("../../resources/rootfiles.txt");
+  auto ch = pph.getChain(path_rootfiles);
 
   // prepare histograms
   //std::vector<TH1D*> hs1d;
   //std::vector<TH2D*> hs2d;
-  TH1D* hs1d = new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax);
+  TH1D* hs1d = pph.getIVMhisto();
   
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
 
   for (auto ii = 0; ii<nEvents2Process; ii+=1)
-  {
-      if((ii % 1000000)==0){
-        std::cout << float(ii)/float(nEvents2Process)*100 << " % " << std::endl;
-      }
-    
+  {  
     ch->GetEntry(ii);
+    helpers::coutpercentage(ii,nEvents2Process);
     
     // event selections 
     if (!pph.isGoodEvent(ppc,true)) //only keeps events with 3 or 4 tracks
@@ -152,5 +120,4 @@ void morethan2tracks(TString fnconfig = "ppConfig_morethan2tracks.json")
 
   delete ch;
 
-  
 }

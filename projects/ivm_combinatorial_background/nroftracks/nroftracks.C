@@ -1,49 +1,21 @@
 //Fills Histograms of pp Events with kaon events filtered out by restricting the dca
+#include "../../resources/ppPaths.h"
+#include "../../resources/ppHelpers/ppHelpers.h"
 
 
-#include "Riostream.h"
-#include "TFile.h"
-#include "TChain.h"
-#include "TCanvas.h"
-#include "TH1D.h"
-#include "TH2D.h"
-#include "TRandom3.h"
-
-#include "../ppHelpers/ppHelpers.h"
-#include <random>
-#include <cmath>
-
-// run with
-//  root -q -b 'processppEvents.C("LHC22_pass7_skimmed", "RF_LHC22_pass7_skimmed.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin_small", "RF_LHC23_pass4_Thin_small.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin", "RF_LHC23_pass4_Thin.txt")'
-
-// Available datastes                  Events total    2pi candidates    2K candidates
-//    LHC22_pass7_skimmed               32'467'114
-//    LHC22_pass4_lowIR
-//    LHC22_pass4_highIR_Thin_sampling
-//    LHC22_pass4_highIR_Thin
-//    LHC23_pass4_skimmed                13'824'860
-//    LHC23_pass4_Thin_small             18'275'132
-//    LHC23_pass4_Thin                  529'246'110
-//    LHC24_pass1_skimmed               125'768'899
-//    LHC24_pass1_MinBias
-//
-// auto fnames = std::string("rootfiles.txt");
-
-void nroftracks(TString fnconfig = "../ppHelpers/ppConfig.json")
+void nroftracks()
 {
 
   //safe data
-  std::string histofilename = "results/histograms/histo_nroftracks.root";
+  std::string histofilename = "results/histograms/histo_nroftracks_new.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
   ppHelpers pph;
-  ppConfiguration* ppc = new ppConfiguration(fnconfig);
+  ppConfiguration* ppc = new ppConfiguration(path_json);
 
   // create a TChain
-  auto ch = pph.getChain("ressources/rootfiles.txt");
+  auto ch = pph.getChain(path_rootfiles);
   
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
@@ -56,11 +28,8 @@ void nroftracks(TString fnconfig = "../ppHelpers/ppConfig.json")
   for (auto ii = 0; ii<nEvents2Process; ii+=100)
   {
     ch->GetEntry(ii);
-
-      if((ii % 100000)==0){
-        std::cout << float(ii)/float(nEvents2Process)*100 << " % " << std::endl;
-      }
-
+    helpers::coutpercentage(ii,nEvents2Process);
+    
     // event selections 
     if (!pph.isGoodEvent(ppc,false))
     {

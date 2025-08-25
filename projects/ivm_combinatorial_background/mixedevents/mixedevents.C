@@ -1,61 +1,23 @@
 //Fills Histograms of pp Events with mixed events
+#include "../../resources/ppPaths.h"
+#include "../../resources/ppHelpers/ppHelpers.h"
 
-
-
-#include "Riostream.h"
-#include "TFile.h"
-#include "TChain.h"
-#include "TCanvas.h"
-#include "TH1D.h"
-#include "TH2D.h"
-#include "TVector3.h"
-
-#include "../ppHelpers/ppHelpers.h"
-
-
-// run with
-//  root -q -b 'processppEvents.C("LHC22_pass7_skimmed", "RF_LHC22_pass7_skimmed.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin_small", "RF_LHC23_pass4_Thin_small.txt")'
-//  root -q -b 'processppEvents.C("LHC23_pass4_Thin", "RF_LHC23_pass4_Thin.txt")'
-
-// Available datastes                  Events total    2pi candidates    2K candidates
-//    LHC22_pass7_skimmed               32'467'114
-//    LHC22_pass4_lowIR
-//    LHC22_pass4_highIR_Thin_sampling
-//    LHC22_pass4_highIR_Thin
-//    LHC23_pass4_skimmed                13'824'860
-//    LHC23_pass4_Thin_small             18'275'132
-//    LHC23_pass4_Thin                  529'246'110
-//    LHC24_pass1_skimmed               125'768'899
-//    LHC24_pass1_MinBias
-//
-// auto fnames = std::string("rootfiles.txt");
-void mixedevents(TString fnconfig = "../ppHelpers/ppConfig.json")
+void mixedevents()
 {
-
-  int nbIVM = 4000;
-  float bIVMmin = 0.;
-  float bIVMmax = 5.;
   //safe data
-  std::string histofilename = "results/histograms/histo_mixedevents.root";
+  std::string histofilename = "results/histograms/histo_mixedevents_new.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
   ppHelpers pph;
-  ppConfiguration* ppc = new ppConfiguration(fnconfig);
+  ppConfiguration* ppc = new ppConfiguration(path_json);
 
   // create a TChain
-  auto ch = pph.getChain("ressources/rootfiles.txt");
+  auto ch = pph.getChain(path_rootfiles);
 
-  // prepare histograms
-  //std::vector<TH1D*> hs1d;
-  //std::vector<TH2D*> hs2d;
-  TH1D* hs1d = new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax);
+  // prepare histogram
+  TH1D* hs1d = pph.getIVMhisto();
 
-  //pph.getHistos(hs1d, hs2d);
-
-  // prepare structures to hold variables as function of run number
-  
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
   std::vector<float> masses;
@@ -63,13 +25,10 @@ void mixedevents(TString fnconfig = "../ppHelpers/ppConfig.json")
   std::vector<ROOT::Math::PxPyPzMVector> pxpypzm_archive;
   std::vector<double> trksign_archive;
 
-  for (auto ii = 0; ii<nEvents2Process; ii+=100)
+  for (auto ii = 0; ii<nEvents2Process; ii++)
   {
-      if((ii % 1000000)==0){
-        std::cout << float(ii)/float(nEvents2Process)*100 << " % " << std::endl;
-      }
-    
     ch->GetEntry(ii);
+    helpers::coutpercentage(ii,nEvents2Process);
     
     // event selections 
     if (!pph.isGoodEvent(ppc))
@@ -103,5 +62,4 @@ void mixedevents(TString fnconfig = "../ppHelpers/ppConfig.json")
 
   delete ch;
 
-  
 }
