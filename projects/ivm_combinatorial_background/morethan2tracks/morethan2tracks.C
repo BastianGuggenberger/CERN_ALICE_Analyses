@@ -70,53 +70,65 @@ std::vector<std::vector<int>> getgoodtuples(ppHelpers& pph,ppConfiguration* ppc,
 void morethan2tracks()
 {
   //safe data
-  std::string histofilename = "results/histograms/histo_morethan2tracks_new.root";
+  std::string histofilename = "results/histograms/histo_morethan2tracks.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
   ppHelpers pph;
-  ppConfiguration* ppc = new ppConfiguration(path_json);
+  ppConfiguration* ppc = new ppConfiguration("ppConfig_morethan2tracks.json"); //unique json file for 3 or 4 tracks
 
   // create a TChain
   auto ch = pph.getChain(path_rootfiles);
 
-  // prepare histograms
-  //std::vector<TH1D*> hs1d;
-  //std::vector<TH2D*> hs2d;
-  TH1D* hs1d = pph.getIVMhisto();
-  
+  // prepare histos and masses
+  TH1D* IVMhisto = pph.getIVMhisto();
+  std::vector<TH2D*> hs2d = pph.getparamvsivmhistos(); 
+  std::vector<float> masses;
+
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
-
   for (auto ii = 0; ii<nEvents2Process; ii+=1)
   {  
     ch->GetEntry(ii);
     helpers::coutpercentage(ii,nEvents2Process);
     
     // event selections 
-    if (!pph.isGoodEvent(ppc,true)) //only keeps events with 3 or 4 tracks
-    {
-      continue;
-    }
+    if (!pph.isGoodEvent(ppc,true)) continue; //only keeps events with 3 or 4 tracks
 
     std::vector<std::vector<float>> masses_vec;
     std::vector<std::vector<int>> goodtuples = getgoodtuples(pph,ppc,masses_vec);
-
+    
     for(int i=0; i<goodtuples.size(); i++){
       ROOT::Math::PxPyPzMVector ivm(0., 0., 0., 0.);
-      for (int ii=0; ii<2; ii++)
+      for (int j=0; j<2; j++)
       {
-        ivm += ROOT::Math::PxPyPzMVector(TrkPx[goodtuples[i][ii]], TrkPy[goodtuples[i][ii]], TrkPz[goodtuples[i][ii]], masses_vec[i][ii]); //masses_vec[i] only has 2 entries!
+        ivm += ROOT::Math::PxPyPzMVector(TrkPx[goodtuples[i][j]], TrkPy[goodtuples[i][j]], TrkPz[goodtuples[i][j]], masses_vec[i][j]); //masses_vec[i] only has 2 entries!
       }
       // ULS and LS
-      if (TrkSign[0]*TrkSign[1] > 0) {
-        hs1d->Fill(ivm.M(), 1.);
+      if (TrkSign[goodtuples[i][0]]*TrkSign[goodtuples[i][1]] > 0) {
+        //Fill Histograms
+        IVMhisto->Fill(ivm.M(), 1.);
+
+        for(int j=0; j<2; j++){
+          auto v = ROOT::Math::XYZVector(TrkPx[goodtuples[i][j]], TrkPy[goodtuples[i][j]], TrkPz[goodtuples[i][j]]);
+          hs2d[0]->Fill(v.Rho(), ivm.M(), 1.);
+          hs2d[2]->Fill(v.eta(), ivm.M(), 1.);
+        }
+        auto v_0 = TVector3(TrkPx[goodtuples[i][0]], TrkPy[goodtuples[i][0]], TrkPz[goodtuples[i][0]]);
+        auto v_1 = TVector3(TrkPx[goodtuples[i][1]], TrkPy[goodtuples[i][1]], TrkPz[goodtuples[i][1]]);
+        double theta = v_0.Angle(v_1);
+        hs2d[1]->Fill(theta, ivm.M(), 1.);
+        hs2d[3]->Fill(sqrt(1.+cos(theta)),ivm.M(),1.);
       } 
-  }
+    }
   }
 
-  std::string histoname = "hs1d";
-  histofile.WriteObject(hs1d, histoname.c_str());
+  //safe histograms
+  histofile.WriteObject(IVMhisto,"IVMhisto");
+  histofile.WriteObject(hs2d[0],"pThisto");
+  histofile.WriteObject(hs2d[1],"thetahisto");
+  histofile.WriteObject(hs2d[2],"etahisto");
+  histofile.WriteObject(hs2d[3],"sqrthisto");
 
   delete ch;
 

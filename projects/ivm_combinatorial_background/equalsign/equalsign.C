@@ -4,7 +4,7 @@
 void equalsign()
 {
   //safe data
-  std::string histofilename = "results/histograms/histo_equalsign_new.root";
+  std::string histofilename = "results/histograms/histo_equalsign.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   // get helpers and configuration
@@ -14,12 +14,14 @@ void equalsign()
   // create a TChain
   auto ch = pph.getChain(path_rootfiles);
 
+  // prepare histos and masses
+  TH1D* IVMhisto = pph.getIVMhisto();
+  std::vector<TH2D*> hs2d = pph.getparamvsivmhistos(); 
+  std::vector<float> masses;
+
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
-  std::vector<float> masses;
-  TH1D* hs1d = pph.getIVMhisto();
-
-  for (auto ii = 0; ii<nEvents2Process; ii++)
+  for (auto ii = 0; ii<nEvents2Process; ii+=1)
   {
     ch->GetEntry(ii);
     helpers::coutpercentage(ii,nEvents2Process);
@@ -30,20 +32,20 @@ void equalsign()
     // check if event has 2 tracks which are compatible with PID hypothesis
     if ( pph.isGoodTuple(ppc, masses, true) )
     {
-      ROOT::Math::PxPyPzMVector ivm(0., 0., 0., 0.);
-      for (int ii=0; ii<NumContrib; ii++)
-      {
-        ivm += ROOT::Math::PxPyPzMVector(TrkPx[ii], TrkPy[ii], TrkPz[ii], masses[ii]);
-      }
       // ULS and LS
       if (TrkSign[0]*TrkSign[1] > 0) {
-        hs1d->Fill(ivm.M(), 1.);
-      } 
-    }
+        //Fill Histograms
+        pph.FillHistos(ppc,IVMhisto,hs2d, masses);
+      }
+    } 
   }
 
-  //safe histogram
-  std::string histoname = "hs1d";
-  histofile.WriteObject(hs1d, histoname.c_str());
+  //safe histograms
+  histofile.WriteObject(IVMhisto,"IVMhisto");
+  histofile.WriteObject(hs2d[0],"pThisto");
+  histofile.WriteObject(hs2d[1],"thetahisto");
+  histofile.WriteObject(hs2d[2],"etahisto");
+  histofile.WriteObject(hs2d[3],"sqrthisto");
+
   delete ch;
 }

@@ -12,35 +12,34 @@
 #include <vector>
 
 std::vector<std::string> names_folders = {"equalsign","mixedevents","rotatedtracks","morethan2tracks"};
-std::vector<std::string> names_files = {"equalsign","mixedevents","rotatedtracks_uniformsqrt","morethan2tracks"};
 std::vector<Color_t> colors = {kBlue,kRed,kGreen,kOrange};
 std::vector<std::string> labels = {"equal-charge-based background","mixed-events-based background","rotated-tracks-based background","morethan2tracks-based background"};
 
-
 //----------------------------
 
 //----------------------------
 
-void plotsingle(std::string name_folder, std::string name_file, bool dim2 = false, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
-  //load histogram
-  std::string histofilename = "../"+name_folder+"/results/histograms/histo_"+name_file+".root";
+void plotsingle(std::string name_folder, bool dim2 = false, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
+  //load histograms
+  std::string histofilename = "../"+name_folder+"/results/histograms/histo_"+name_folder+".root";
   TFile histofile(histofilename.c_str(), "READ");
+  std::vector<std::string> histonames = {"IVMhisto","pThisto","thetahisto","etahisto","sqrthisto"};
 
-  //PLOT
-  std::string histoname = "hs1d";
-  TCanvas *cv = new TCanvas();
-  if(dim2){
-    TH2D* histo = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
-    histo->RebinX(10.);
-    histo->RebinY(20.);
-    histo->Draw("COLZ");
-  }else{
-    TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
-    histo->Draw();
+  for(std::string histoname: histonames){
+    //PLOT
+    TCanvas *cv = new TCanvas();
+    if(dim2){
+      TH2D* histo = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
+      histo->RebinX(10.);
+      histo->RebinY(20.);
+      histo->Draw("COLZ");
+    }else{
+      TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
+      histo->Draw();
+    }
+    std::string outputname = "results/solobackgrounds/"+name_folder+"/"+name_folder+"_"+histoname+".png";
+    cv->SaveAs(outputname.c_str());
   }
-  std::string outputname = "results/solobackgrounds/"+name_file+".png";
-  cv->SaveAs(outputname.c_str());
-
 }
 
 void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
@@ -56,7 +55,7 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
-  for (int i=0; i<names_files.size(); i++){
+  for (int i=0; i<names_folders.size(); i++){
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->SetFillColorAlpha(colors[i], 0.25);
     histograms[i]->Draw("SAME");
@@ -83,7 +82,7 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   blueprint->SetLineColor(kBlack);
   blueprint->Draw();
 
-  for (int i=0; i<names_files.size(); i++){
+  for (int i=0; i<names_folders.size(); i++){
     histograms[i]->SetFillColorAlpha(colors[i], 0.25);
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->Draw("SAME");
@@ -158,17 +157,17 @@ void scale_integral(TH1D* bck2scale, TH1D* bckdefault, int minbin, int maxbin){
 void backgroundcomparison(double comparison_minimum,double comparison_maximum){
   //load unscaled histograms
 
-  std::string histoname = "hs1d";
+  std::string histoname = "IVMhisto";
   std::vector<TH1D*> histograms;
   for (int i=0; i<names_folders.size(); i++){
-    std::string filename = "../" + names_folders[i] +"/results/histograms/histo_" + names_files[i] + ".root";
+    std::string filename = "../" + names_folders[i] +"/results/histograms/histo_" + names_folders[i] + ".root";
     TFile file(filename.c_str(),"READ");
     histograms.push_back(static_cast<TH1D*>(file.Get(histoname.c_str())));
     histograms[histograms.size()-1]->SetDirectory(nullptr);
   }
   std::string filename = "results/ivmblueprint/histo_ivmblueprint.root";
   TFile blueprintfile(filename.c_str(),"READ");
-  TH1D* blueprint = static_cast<TH1D*>(blueprintfile.Get(histoname.c_str()));
+  TH1D* blueprint = static_cast<TH1D*>(blueprintfile.Get("hs1d"));
 
   int minbin = blueprint->FindBin(comparison_minimum);
   int maxbin = blueprint->FindBin(comparison_maximum);
