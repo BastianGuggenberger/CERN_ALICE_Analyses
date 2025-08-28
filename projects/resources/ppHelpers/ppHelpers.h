@@ -217,6 +217,10 @@ class ppHelpers
     int nbp = 1000;
     float bpmin = 0.;
     float bpmax = 5.;
+
+    int nbangle = 1000;
+    float banglemin = 0.;
+    float banglemax = TMath::Pi();
     
     int nbnS = 6000;
     float bnSmin = -30.;
@@ -256,7 +260,7 @@ class ppHelpers
       std::cout << "Number of events  : " << ch->GetEntries() << std::endl;
       
       // assign branches
-      #include "ppBranchAssignment.h"
+      #include "ppBranchAssignment_reduced.h"
 
       // inspect branches
       auto branches = ch->GetListOfBranches();
@@ -270,103 +274,21 @@ class ppHelpers
       return ch;
     };
 
-    // prepare all histograms
-    void getHistos(std::vector<TH1D*> &hs1d, std::vector<TH2D*> &hs2d)
-    {
-      // 1D ========================================================================
-      // [0]
-      hs1d.push_back(new TH1D("evselbits", ";event selection bit;Number of events", 10, -0.5, 9.5));
-      // [1]
-      hs1d.push_back(new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax));
-      // [2]
-      hs1d.push_back(new TH1D("LS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax));
-      // [3]
-      hs1d.push_back(new TH1D("Vx", ";V_{x};Number of events", 400, -0.1, 0.1));
-      // [4]
-      hs1d.push_back(new TH1D("Vy", ";V_{y};Number of events", 400, -0.1, 0.1));
-      // [5]
-      hs1d.push_back(new TH1D("Vz", ";V_{z};Number of events", 600, -30., 30.));
-      // [6]
-      hs1d.push_back(new TH1D("Occupancy", ";Occupancy;Number of events", 60, -10., 50.));
-      // [7]
-      hs1d.push_back(new TH1D("FT0AmplitudeA", ";FT0A amplitude;Number of events", 60, -10., 50.));
-      // [8]
-      hs1d.push_back(new TH1D("FT0AmplitudeC", ";FT0C amplitude;Number of events", 60, -10., 50.));
-      // [9]
-      hs1d.push_back(new TH1D("FV0AmplitudeA", ";FV0A amplitude;Number of events", 60, -10., 50.));
-      // [10]
-      hs1d.push_back(new TH1D("FT0ATime", ";FT0A time;Number of events", 240., -10., 50.));
-      // [11]
-      hs1d.push_back(new TH1D("FT0CTime", ";FT0C time;Number of events", 240., -10., 50.));
-      // [12]
-      hs1d.push_back(new TH1D("FV0ATime", ";FV0A time;Number of events", 240., -10., 50.));
-
-      // 2D ========================================================================
-      // [0]
-      hs2d.push_back(new TH2D("Number of contributors versus number of tracks", "Number of events;Number of contributors;Number of tracks", 100, 0., 100., 100, 0., 100.));
-      // [1]
-      hs2d.push_back(new TH2D("Vertex position", "Number of events; V_{z} [#mum]; V_{T} [cm]", 200, -25., 25., 200, -0.15, 0.15));
-
-      // nsigma verus momentum
-      // [2]
-      hs2d.push_back(new TH2D("nSigma_TPC_el", "Number of events; track momentum [GeV/c]; n#sigma_{TPC, el}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [3]
-      hs2d.push_back(new TH2D("nSigma_TPC_pi", "Number of events; track momentum [GeV/c]; n#sigma_{TPC, pi}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [4]
-      hs2d.push_back(new TH2D("nSigma_TPC_ka", "Number of events; track momentum [GeV/c]; n#sigma_{TPC, ka}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [5]
-      hs2d.push_back(new TH2D("nSigma_TPC_pr", "Number of events; track momentum [GeV/c]; n#sigma_{TPC, pr}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [6]
-      hs2d.push_back(new TH2D("nSigma_TOF_el", "Number of events; track momentum [GeV/c]; n#sigma_{TOF, el}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [7]
-      hs2d.push_back(new TH2D("nSigma_TOF_pi", "Number of events; track momentum [GeV/c]; n#sigma_{TOF, pi}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [8]
-      hs2d.push_back(new TH2D("nSigma_TOF_ka", "Number of events; track momentum [GeV/c]; n#sigma_{TOF, ka}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-      // [9]
-      hs2d.push_back(new TH2D("nSigma_TOF_pr", "Number of events; track momentum [GeV/c]; n#sigma_{TOF, pr}", nbp, bpmin, bpmax, nbnS, bnSmin, bnSmax));
-
-      // IVM plots
-      // [10]
-      hs2d.push_back(new TH2D("IVMpT", "Number of events; IVM [GeV/c^{2}]; Pair p_{T} [GeV/c]", nbIVM, bIVMmin, bIVMmax, nbp, bpmin, bpmax));
-      // [11]
-      hs2d.push_back(new TH2D("IVMtrpT", "Number of events; IVM [GeV/c^{2}]; Track p_{T} [GeV/c]", nbIVM, bIVMmin, bIVMmax, nbp, bpmin, bpmax));
-      // [12]
-      hs2d.push_back(new TH2D("IVMVsdcaxy", "Number of events; IVM [GeV/c^{2}]; track dca_{xy} [#mum]", nbIVM, bIVMmin, bIVMmax, 200, 0., 200.));
-      // [13]
-      hs2d.push_back(new TH2D("IVMVsdcaz", "Number of events; IVM [GeV/c^{2}]; track dca_{z} [#mum]", nbIVM, bIVMmin, bIVMmax, 200, 0., 200.));
-      // [14]
-      hs2d.push_back(new TH2D("IVMVsaco", "Number of events; IVM [GeV/c^{2}]; acoplanarity", nbIVM, bIVMmin, bIVMmax, 200, 0., 1.));
-      
-      // tracks
-      // [15]
-      hs2d.push_back(new TH2D("etaVspTall", "Number of events; #eta; track p_{T} [GeV/c]", 240, -1.2, 1.2, nbp, bpmin, bpmax));
-      // [16]
-      hs2d.push_back(new TH2D("etaVspTwTOF", "Number of events; #eta; track_{with TOF} p_{T} [GeV/c]", 240, -1.2, 1.2, nbp, bpmin, bpmax));
-      
-      // dca xy vs z
-      // [17]
-      hs2d.push_back(new TH2D("dcazVsdcaxy", "Number of events; track dca_{z} [#mum]; track dca_{xy} [#mum]", 200, 0., 200. ,200, 0., 200.));
-      
-      // configure the display of the histograms
-      for (auto h : hs1d)
-      {
-        h->SetTitle("");
-        h->SetStats(0);
-        h->SetLineColor(c2u[5]);
-      }
-      for (auto h : hs2d)
-      {
-        h->SetTitle("");
-        h->SetStats(0);
-      }
-    }
-
     TH1D* getIVMhisto(){
       int nbIVM = 4000;
       float bIVMmin = 0.;
       float bIVMmax = 5.;
       TH1D* ivmhisto = new TH1D("ULS IVM", ";IVM [GeV/c^{2}];Number of events", nbIVM, bIVMmin, bIVMmax);
       return ivmhisto;
+    }
+
+    std::vector<TH2D*> getparamvsivmhistos(){
+      TH2D* pThisto = new TH2D("pT vs IVM", "pT vs IVM; track p_{T} [GeV/c]; IVM [GeV/c^{2}]", nbp, bpmin, bpmax, nbIVM, bIVMmin, bIVMmax);
+      TH2D* thetahisto = new TH2D("theta vs IVM", "theta vs IVM; theta; IVM [GeV/c^{2}]",nbangle, banglemin, banglemax, nbIVM, bIVMmin, bIVMmax);
+      TH2D* etahisto = new TH2D("eta vs IVM", "eta vs IVM; #eta; IVM [GeV/c^{2}]", 240, -1.2, 1.2, nbIVM, bIVMmin, bIVMmax);
+      TH2D* sqrthisto = new TH2D("sqrt vs IVM", "sqrt-term vs IVM; sqrt-term; IVM [GeV/c^{2}]", nbangle, 0., 1.5, nbIVM, bIVMmin, bIVMmax);
+      std::vector<TH2D*> histos = {pThisto,thetahisto,etahisto,sqrthisto, sqrthisto};
+      return histos;
     }
 
     // plot the default histograms
@@ -660,6 +582,20 @@ class ppHelpers
       return true;
     }
 
+    //check if the dca is not too large
+    bool isGoodEvent_dca(double alpha, double acc_xy, double acc_z){
+      //dca filter
+      for (int ii=0; ii<NumContrib; ii++){
+        double c = 1.0/(acc_xy*acc_xy); //acc_xy represents 1. half axis of the ellipse
+        double d = 1.0/(acc_z*acc_z); //acc_z represents 2. half axis of the ellipse
+        if(c * (TrkDCAxy[ii]*TrkDCAxy[ii]) + d * (TrkDCAz[ii]*TrkDCAz[ii]) > alpha){
+            return false;
+          }
+      }
+      
+      return true;
+    }
+
     // return the most probable mass
     bool getMasses(int nTrks, float nslim, std::vector<float> &tmasses)
     {
@@ -694,4 +630,28 @@ class ppHelpers
       
       return aco;
     }
+
+    void FillHistos(ppConfiguration* ppc, TH1D* IVMhisto, std::vector<TH2D*> hs2d, std::vector<float> &masses){
+
+      //Calculate ivm
+      ROOT::Math::PxPyPzMVector ivm(0., 0., 0., 0.);
+      for (int ii=0; ii<NumContrib; ii++)
+      {
+        ivm += ROOT::Math::PxPyPzMVector(TrkPx[ii], TrkPy[ii], TrkPz[ii], masses[ii]);
+      }
+
+      //Fill Histograms
+      IVMhisto->Fill(ivm.M(), 1.);
+
+      for(int j=0; j<2; j++){
+        auto v = ROOT::Math::XYZVector(TrkPx[j], TrkPy[j], TrkPz[j]);
+        hs2d[0]->Fill(v.Rho(), ivm.M(), 1.);
+        hs2d[2]->Fill(v.eta(), ivm.M(), 1.);
+      }
+      auto v_0 = TVector3(TrkPx[0], TrkPy[0], TrkPz[0]);
+      auto v_1 = TVector3(TrkPx[1], TrkPy[1], TrkPz[1]);
+      double theta = v_0.Angle(v_1);
+      hs2d[1]->Fill(theta, ivm.M(), 1.);
+      hs2d[3]->Fill(sqrt(1.+cos(theta)),ivm.M(),1.);
+  }
 };

@@ -5,7 +5,7 @@
 void equalsign()
 {
   //safe data
-  std::string histofilename = "results/histograms/histo_equalsign.root";
+  std::string histofilename = "results/histograms/histo_equalsign_test.root";
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   //get helpers and configuration
@@ -22,7 +22,7 @@ void equalsign()
 
   //loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
-  for (auto ii = 0; ii<nEvents2Process; ii+=1)
+  for (auto ii = 0; ii<nEvents2Process; ii+=100)
   {
     ch->GetEntry(ii);
     helpers::coutpercentage(ii,nEvents2Process);
