@@ -94,8 +94,8 @@ For each of theses methods, there is a seperate folder with the name "methodname
 ## Results  
 The resulting histograms of the 4 different methods are scaled and plotted by the script "background_comparison/backgroundcomparison.C", containing two main functions:  
 
-- plotsingle(name_folder, name_file, dim_2=false):  
-plots a single histogram from the rootfile "name_folder/results/histograms/histo_name_file.root"  
+- plotsingle(name_method, dim_2=false):  
+plots a single histogram from the rootfile "name_method/results/histograms/histo_name_method.root"  
 
 - backgroundcomparison(double comparison_minimum,double comparison_maximum):  
 plots logarithmic and linear scaled histograms of the 4 combinatorial backgrounds and the original ivm distribution.  
