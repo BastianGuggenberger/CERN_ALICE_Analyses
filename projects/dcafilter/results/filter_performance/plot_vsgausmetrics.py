@@ -36,7 +36,7 @@ def getdata(folder):
     cvec = []
     tvec= []
 
-    with open("ressources/original_a_b_c_t.txt") as f:
+    with open("resources/original_a_b_c_t.txt") as f:
         for line in f:
             rawline = line.strip().split(",")
             a_0 = float(rawline[0])
@@ -45,7 +45,7 @@ def getdata(folder):
             t_0 = float(rawline[3])
 
 
-    sourcepath="ressources/"+folder+"alpha_xy_z_a_b_c_t.txt"
+    sourcepath="resources/"+folder+"alpha_xy_z_a_b_c_t.txt"
     with open(sourcepath) as f:
         for line in f:
             rawline = line.strip().split(",")

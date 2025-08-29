@@ -62,7 +62,7 @@ void dcafilter(std::string folder, std::vector<std::array<double,3>> accsettings
     }
   }
     
-  for (int i=1; i<n_settings; i++){
+  for (int i=0; i<n_settings; i++){
 
     //save histograms
     std::cout <<"saving histograms as root files... " << std::endl;
@@ -107,9 +107,9 @@ void varyalpha(){
   double acc_xy = 0.015;
   double acc_z = 0.0125;
 
-  double startalpha = 0.3;
-  double stepsize = 0.15;
-  double n_steps = 14;
+  double startalpha = 0.10;
+  double stepsize = 0.10;
+  double n_steps = 3;
 
   //loop over settings
   for (int i=0; i<n_steps; i++){

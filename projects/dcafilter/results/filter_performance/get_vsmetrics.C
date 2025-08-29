@@ -165,15 +165,15 @@ void getalphasvsmetrics(){
     acc_z = acc_z_reset;
 
     double metric;
-    std::vector<double> alphavec {0.3}; //0.45,0.6,0.75,0.9,1.05,1.2,1.35,1.5,1.65,1.8,1.95,2.1,2.25
+    std::vector<double> alphavec {0.2,0.3,0.45,0.6,0.75,0.9,1.05,1.2,1.35,1.5,1.65,1.8,1.95,2.1,2.25}; 
     ofstream alphaxyzvsmetrics("resources/varyalpha/alpha_xy_z_a_b_c_t.txt");
     ofstream originalmetrics("resources/original_a_b_c_t.txt");
 
-    /*
+    
     alpha = 100;
     std::vector<double> abct_0 = get_abct(folder);
     originalmetrics << abct_0[0] << "," << abct_0[1] << "," << abct_0[2] << "," << abct_0[3];
-    */
+    
 
     for (double nextalpha: alphavec){
         alpha = nextalpha;
