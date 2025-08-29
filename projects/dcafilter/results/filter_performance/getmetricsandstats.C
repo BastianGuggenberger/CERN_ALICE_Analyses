@@ -44,7 +44,7 @@ std::vector<double> vLow = {0,400, 50, 0.495,0.005};
 std::vector<double> vHigh = {2000,2000,10000,0.50,0.10};
 
 
-TH1D* loadhisto(std::string folder, int entry){
+TH1D* loadhisto(std::string folder){
 
   // prepare histograms
   TH1D* ivmhisto = new TH1D;
@@ -58,14 +58,24 @@ TH1D* loadhisto(std::string folder, int entry){
   return ivmhisto;
 }
 
+std::array<double,2> get_stats(std::string folder){
+
+  TH1D* ivmhisto = loadhisto(folder);
+  double Ntotal = ivmhisto->Integral();
+  std::cout << ivmhisto->Integral() << std::endl;
+  int minbin = ivmhisto->GetXaxis()->FindBin(kaonmass-3*meansigma);
+  int maxbin = ivmhisto->GetXaxis()->FindBin(kaonmass+3*meansigma);
+  double Nb = ivmhisto->Integral(minbin,maxbin); //Nb: number of bad events (number of events in the K0 band)
+  double Ng = Ntotal-Nb; //Ng: number of good events (events outside the K0 mass band)
+
+  std::array<double,2> stats = {Ng,Nb};
+  return stats;
+}
 
 
 std::vector<double> get_abct(std::string folder){
-  int entry = 1;
-  if(folder=="2d/"){
-    entry = 0;
-  }
-  TH1D* ivmhisto = loadhisto(folder, entry);
+
+  TH1D* ivmhisto = loadhisto(folder);
   double t = ivmhisto->Integral();
   std::cout << t << std::endl;
 
@@ -154,6 +164,8 @@ std::vector<double> get_abct(std::string folder){
 
 
 
+
+
 //-----------------------------------------------------
 //MAIN:
 
@@ -168,15 +180,23 @@ void getalphasvsmetrics(){
     std::vector<double> alphavec {0.2,0.3,0.45,0.6,0.75,0.9,1.05,1.2,1.35,1.5,1.65,1.8,1.95,2.1,2.25}; 
     ofstream alphaxyzvsmetrics("resources/varyalpha/alpha_xy_z_a_b_c_t.txt");
     ofstream originalmetrics("resources/original_a_b_c_t.txt");
-
+    ofstream alphaxyzvsstatistics("resources/varyalpha/alpha_xy_z_statistics.txt");
+    ofstream originalstatistics("resources/original_statistics.txt");
     
     alpha = 100;
     std::vector<double> abct_0 = get_abct(folder);
     originalmetrics << abct_0[0] << "," << abct_0[1] << "," << abct_0[2] << "," << abct_0[3];
-    
+    std::array<double,2> stats_0 = get_stats(folder);
+    originalstatistics << stats_0[0] << "," << stats_0[1];
 
     for (double nextalpha: alphavec){
         alpha = nextalpha;
+
+        //get statistics
+        std::array<double,2> stats = get_stats(folder);
+        alphaxyzvsstatistics << alpha << "," << acc_xy << "," << acc_z << "," << stats[0] << "," << stats[1] << std::endl;
+
+        //get metrics
         std::vector<double> abct_1 = get_abct(folder);
         alphaxyzvsmetrics << alpha << "," << acc_xy << "," << acc_z << "," << abct_1[0] << "," << abct_1[1] << "," << abct_1[2] << "," << abct_1[3] << std::endl;
     }
@@ -189,6 +209,7 @@ void getxyzvsmetrics(){
 
     double metric;
     ofstream alphaxyzvsmetrics("resources/varyxyz/alpha_xy_z_a_b_c_t.txt");
+    ofstream alphaxyzvsstatistics("resources/varyxyz/alpha_xy_z_statistics.txt");
 
     const double product = 15.0e-03 * 12.5e-03; //surface of ellipse will be kept constant
     double start_acc_xy = 3.0e-03;
@@ -197,6 +218,12 @@ void getxyzvsmetrics(){
     for (int i=0; i<n_steps; i++){
         acc_xy = start_acc_xy + i*stepsize;
         acc_z = product/acc_xy;
+
+        //get statistics
+        std::array<double,2> stats = get_stats(folder);
+        alphaxyzvsstatistics << alpha << "," << acc_xy << "," << acc_z << "," << stats[0] << "," << stats[1] << std::endl;
+
+        //get metrics
         std::vector<double> abct_1 = get_abct(folder);
         alphaxyzvsmetrics << alpha << "," << acc_xy << "," << acc_z << "," << abct_1[0] << "," << abct_1[1] << "," << abct_1[2] << "," << abct_1[3] << std::endl;
     }
@@ -208,11 +235,18 @@ void get2dvsmetrics(){
 
     double metric;
     ofstream alphaxyzvsmetrics("resources/2d/alpha_xy_z_a_b_c_t.txt");
+    ofstream alphaxyzvsstatistics("resources/2d/alpha_xy_z_statistics.txt");
 
     for (int i=1; i<12; i++){
       for(int j=1; j<12; j++){
         acc_xy = 0.0 + 0.0025*i;
         acc_z = 0.0 + 0.0025*j;
+
+        //get statistics
+        std::array<double,2> stats = get_stats(folder);
+        alphaxyzvsstatistics << alpha << "," << acc_xy << "," << acc_z << "," << stats[0] << "," << stats[1] << std::endl;
+
+        //get metrics
         std::vector<double> abct_1 = get_abct(folder);
         alphaxyzvsmetrics << alpha << "," << acc_xy << "," << acc_z << "," << abct_1[0] << "," << abct_1[1] << "," << abct_1[2] << "," << abct_1[3] << std::endl;
     }
