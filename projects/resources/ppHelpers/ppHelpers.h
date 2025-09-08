@@ -226,7 +226,7 @@ class ppHelpers
     float bnSmin = -30.;
     float bnSmax = 30.;
 
-    TChain* getChain(std::string fnames)
+    TChain* getChain(std::string fnames, bool reduced = true)
     {
       // open file with list of root files
       ifstream infile;
@@ -260,7 +260,11 @@ class ppHelpers
       std::cout << "Number of events  : " << ch->GetEntries() << std::endl;
       
       // assign branches
-      #include "ppBranchAssignment_reduced.h"
+      if(reduced){
+        #include "ppBranchAssignment_reduced.h"
+      }else{
+        #include "ppBranchAssignment.h"
+      }
 
       // inspect branches
       auto branches = ch->GetListOfBranches();
