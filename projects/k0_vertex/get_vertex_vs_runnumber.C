@@ -44,7 +44,7 @@ void get_vertex_vs_runnumber()
 
   // loop over events
   auto nEvents2Process = std::min(ch->GetEntries(), ppc->cc<Long64_t>("nEventsMax"));
-  for (auto ii = 0; ii<nEvents2Process; ii+=100)
+  for (auto ii = 0; ii<nEvents2Process; ii+=1)
   {
     ch->GetEntry(ii);
     helpers::coutpercentage(ii,nEvents2Process);
