@@ -71,6 +71,7 @@ std::map<int, int>* runmap(int databaseid){
             (*runs)[RunNumber] += 1;
         }else
         {
+            //key does not exist
             (*runs)[RunNumber] = 1;
         }
     }
