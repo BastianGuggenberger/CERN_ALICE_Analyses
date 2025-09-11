@@ -3,10 +3,13 @@
 #include "../../resources/ppHelpers/ppHelpers.h"
 
 //fills and stores the IVM-histogram of the mixedevents-background
-void mixedevents()
+void mixedevents(bool likesign=false)
 {
   //safe data
   std::string histofilename = "results/histograms/histo_mixedevents.root";
+  if(likesign){
+    histofilename = "results/histograms/histo_mixedevents_likesign.root";
+  }
   TFile histofile(histofilename.c_str(), "RECREATE");
 
   //get helpers and configuration
@@ -47,17 +50,21 @@ void mixedevents()
     for (int ii=0; ii<pxpypzm_archive.size(); ii++)
       {
         //calculate ivm
-        ivm = ivm_0+pxpypzm_archive[ii];
+        ivm = ivm_0 + pxpypzm_archive[ii];
 
         // ULS and LS
-        if (trksign*trksign_archive[ii] < 0) {
-
+        bool rightsign = false;
+        if (likesign){
+          if (trksign*trksign_archive[ii] > 0) rightsign = true;
+        }else{
+          if (trksign*trksign_archive[ii] < 0) rightsign = true;
+        }
+        
+        if (rightsign) {
           //fill histograms
 
           IVMhisto->Fill(ivm.M(), 1.);
 
-          for(int j=0; j<2; j++){
-          }
           auto v_0 = ROOT::Math::XYZVector(TrkPx[0], TrkPy[0], TrkPz[0]);
           hs2d[0]->Fill(v_0.Rho(), ivm.M(), 1.);
           hs2d[2]->Fill(v_0.eta(), ivm.M(), 1.);

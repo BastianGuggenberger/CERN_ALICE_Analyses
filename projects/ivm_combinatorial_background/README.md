@@ -41,7 +41,7 @@ For each of theses methods, there is a seperate folder with the name "methodname
 | Method            | Idea                                                                                  | Targeted Background Contribution      | Output File                 |
 |-------------------|----------------------------------------------------------------------------------------|---------------------------------------|-----------------------------|
 | **equalsign**     | Tracks with the same charge sign are combined as if they originated from the same event. Since such pairs never come from the same event, the histogram is a good indicator of the mixed-event background. | Mixed-event background | `equalsign/results/histo_equalsign.root` |
-| **mixedevents**   | Track pairs from *different* events are combined as if they were from the same event.  | Mixed-event background | `mixedevents/results/histo_mixedevents.root` |
+| **mixedevents**   | Track pairs from *different* events are combined as if they were from the same event. This can be done either for equal-sign or different-sign of charge.  | Mixed-event background | `mixedevents/results/histo_mixedevents.root` |
 | **rotatedtracks** | The relative angle between two tracks from the same event is randomly changed, simulating artificial pairings. | Mixed-event background | `rotatedtracks/results/histo_rotatedtracks.root` |
 | **morethan2tracks** | From events with 3 or 4 tracks, only 2 are selected to compute an IVM. Simulates the misinterpretation of multi-track events as two-track events. | Multi-track contamination | `morethan2tracks/results/histo_morethan2tracks.root` |
 

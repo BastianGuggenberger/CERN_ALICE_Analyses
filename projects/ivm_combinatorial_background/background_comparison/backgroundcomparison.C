@@ -13,9 +13,9 @@
 
 
 //names and descriptions of methods to be compared (names are necessary for paths)
-std::vector<std::string> names_folders = {"equalsign","mixedevents","rotatedtracks","morethan2tracks"};
+std::vector<std::string> names_folders = {"equalsign","mixedevents","mixedevents_likesign","rotatedtracks","morethan2tracks"};
 std::vector<Color_t> colors = {kBlue,kRed,kGreen,kOrange};
-std::vector<std::string> labels = {"equal-charge-based background","mixed-events-based background","rotated-tracks-based background","morethan2tracks-based background"};
+std::vector<std::string> labels = {"equal-charge-based background","mixed-events-based background","mixed-events-based background (equal charge)","rotated-tracks-based background","morethan2tracks-based background"};
 
 //----------------------------------------------------------------------------------------
 
