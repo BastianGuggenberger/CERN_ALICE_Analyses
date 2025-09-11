@@ -1,15 +1,15 @@
 
 //Fitting parameters: {{amplitude, mean, sigma} (vx), {amplitude, mean, sigma} (vy), {amplitude, mean, sigma} (vz)}
-std::vector<std::vector<double>> vStart = {{100,-0.04,0.0005},{100,-0.04,0.0005},{100,-0.04,0.0005}};
-std::vector<std::vector<double>> vStepsize = {{1,0.001,0.0001},{1,0.001,0.0001},{1,0.001,0.0001}};
-std::vector<std::vector<double>> vLow = {{10,-4.0,100},{10,-4.0,100},{10,-4.0,100}};
-std::vector<std::vector<double>> vHigh = {{1000,10.0,10.0},{1000,10.0,10.0},{1000,10.0,10.0}};
+std::vector<std::vector<double>> vStart = {{3800,-0.04,0.05},{3800,0.025,0.05},{50,0.0,3.0}};
+std::vector<std::vector<double>> vStepsize = {{1,0.001,0.001},{1,0.001,0.001},{1,0.001,0.1}};
+std::vector<std::vector<double>> vLow = {{10,-0.045,0.001},{10,0.01,0.001},{2,-3.0,1.0}};
+std::vector<std::vector<double>> vHigh = {{9000,-0.035,0.01},{9000,0.03,0.01},{1000,3.0,20.0}};
 
-std::vector<double> comparemin = {0.0, 0.0, 0.0};
-std::vector<double> comparemax = {1000.0, 1000.0, 1000.0};
+std::vector<double> comparemin = {-0.1, 0.0, -20.0};
+std::vector<double> comparemax = {-0.0, 0.04, 20.0};
 
-std::vector<double> plotmin = {0.0, 0.0, 0.0};
-std::vector<double> plotmax = {1000.0, 1000.0, 1000.0};
+std::vector<double> plotmin = {-30.0, 0.0, -30.0};
+std::vector<double> plotmax = {30.0, 0.1, 30.0};
 
 
 
@@ -87,6 +87,11 @@ std::array<double, 2> get_mean_width(TH1D* histo, int id, std::string filename){
   const double* vs = mMinimizer->X();
   auto chimin = mMinimizer->MinValue();
 
+  //save parameters for next fitting
+  for(int i=0; i<3; i++){
+    vStart[id][i] = vs[i];
+  }
+
   TCanvas *c1 = new TCanvas("c1", "Plot", 800, 600);
  
   histo->GetXaxis()->SetRangeUser(plotmin[id],plotmax[id]);
@@ -97,7 +102,7 @@ std::array<double, 2> get_mean_width(TH1D* histo, int id, std::string filename){
   gaus->SetLineWidth(2);
   gaus->Draw("SAME");
 
-  std::string pngname = "fitpngs/"+filename+".png";
+  std::string pngname = "runnumberplots/fitpngs/"+filename+".png";
   c1->SaveAs(pngname.c_str());
 
   std::array<double, 2> mean_width = {vs[1],vs[2]};
@@ -116,6 +121,9 @@ void plot_vertex_vs_runnumber(){
 
   //load and analyse histograms
 
+  std::string ofname = "runnumberplots/meanvswidth.csv";
+  ofstream meanvswidth_file(ofname);
+
   std::string histofilename = "histograms/histos_vertexvsrunnumber.root";
   TFile histofile(histofilename.c_str(), "READ");
 
@@ -123,11 +131,14 @@ void plot_vertex_vs_runnumber(){
 
   for(int runnumber: getrunnumbers()){
     for(int i=0; i<6; i++){
+
       std::string histoname = "histo_" + std::to_string(runnumber) + names[i];
       TH1D* histo = static_cast<TH1D*>(histofile.Get(histoname.c_str()));
 
       std::array<double, 2> mean_width = get_mean_width(histo,i%3,histoname);
-      std::cout << mean_width[0] << " , " << mean_width[1] << std::endl;
+
+      //meanvswidth_file: i, runnumber, mean, width
+      meanvswidth_file << i << "," << runnumber << "," << mean_width[0] << "," << mean_width[1] << std::endl;
       
     }
   }
