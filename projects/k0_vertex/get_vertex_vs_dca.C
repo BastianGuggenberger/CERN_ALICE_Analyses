@@ -23,10 +23,10 @@ void get_vertex_vs_dca()
   auto ch = pph.getChain(path_rootfiles,false);
 
   //prepare histograms and masses
-  TH2D* histo_vt_k0band = new TH2D("Transversal Vertex position vs dca_xy (in k0 mass band)", "Number of events; V_{T} ; track dca_{xyz}", 200, -0.15, 0.15, 200, 0., 10.0);
-  TH2D* histo_vt_nonk0band = new TH2D("Transversal Vertex position vs dca_xy (outside k0 mass band)", "Number of events; V_{T} ; track dca_{xyz}", 400, -0.15, 0.15, 200, 0., 10.0);
-  TH2D* histo_vz_k0band = new TH2D("Z Vertex position vs dca_xy (in k0 mass band)", "Number of events; V_{z} ; track dca_{xyz}", 200, -25., 25., 200, 0., 10.0);
-  TH2D* histo_vz_nonk0band = new TH2D("Z Vertex position vs dca_xy (outside k0 mass band)", "Number of events; V_{z} ; track dca_{xyz}", 200, -25., 25., 200, 0., 10.0);
+  TH2D* histo_vt_k0band = new TH2D("Transversal Vertex position vs dca_xy (in k0 mass band)", "Number of events; V_{T} ; track dca_{xyz}", 200, -0.15, 0.15, 200, 0., 0.5);
+  TH2D* histo_vt_nonk0band = new TH2D("Transversal Vertex position vs dca_xy (outside k0 mass band)", "Number of events; V_{T} ; track dca_{xyz}", 400, -0.15, 0.15, 200, 0., 0.5);
+  TH2D* histo_vz_k0band = new TH2D("Z Vertex position vs dca_xy (in k0 mass band)", "Number of events; V_{z} ; track dca_{xyz}", 200, -25., 25., 200, 0., 0.5);
+  TH2D* histo_vz_nonk0band = new TH2D("Z Vertex position vs dca_xy (outside k0 mass band)", "Number of events; V_{z} ; track dca_{xyz}", 200, -25., 25., 200, 0., 0.5);
   std::vector<float> masses;
 
   // loop over events

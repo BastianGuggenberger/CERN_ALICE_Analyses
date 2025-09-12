@@ -20,11 +20,14 @@ for i in range(6):
     ax1.plot(rundict[i],meandict[i],label=label,color = "r")
     ax1.set_ylabel(label)
     ax1.set_xlabel("RunNumber")
+    ax1.yaxis.label.set_color("r")
+
 
     ax2 = ax1.twinx()
     label = "width " + names[i]
     ax2.plot(rundict[i],widthdict[i],label=label,color = "b")
     ax2.set_ylabel(label)
+    ax2.yaxis.label.set_color("b")
 
     fig.autofmt_xdate()
     plt.tight_layout()
