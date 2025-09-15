@@ -14,7 +14,7 @@
 
 //names and descriptions of methods to be compared (names are necessary for paths)
 std::vector<std::string> names_folders = {"equalsign","mixedevents","mixedevents_likesign","rotatedtracks","morethan2tracks"};
-std::vector<Color_t> colors = {kBlue,kRed,kGreen,kOrange};
+std::vector<Color_t> colors = {kBlue,kRed,kGreen,kOrange,kBrown};
 std::vector<std::string> labels = {"equal-charge-based background","mixed-events-based background","mixed-events-based background (equal charge)","rotated-tracks-based background","morethan2tracks-based background"};
 
 //----------------------------------------------------------------------------------------
@@ -29,7 +29,14 @@ void plotsingle(std::string name_folder, bool dim2 = false, TString fnconfig = "
 
   for(std::string histoname: histonames){
     //plot histograms
-    TCanvas *cv = new TCanvas();
+    gROOT->SetBatch(kTRUE);
+    gStyle->SetOptStat(0);
+    gStyle->SetLineWidth(2);
+    gStyle->SetLabelSize(0.040,"XY");
+    gStyle->SetTitleSize(0.045,"XY");
+    gStyle->SetNumberContours(255);
+
+    TCanvas *cv = new TCanvas("cv","",2400,1800);
     if(dim2){
       TH2D* histo = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
       histo->RebinX(10.);
@@ -54,23 +61,32 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   for (auto* h : histograms) h->Rebin(4);
 
   // prepare canvas
-  TCanvas *cv = new TCanvas();
+  gROOT->SetBatch(kTRUE);
+  gStyle->SetOptStat(0);
+  gStyle->SetLineWidth(2);
+  gStyle->SetLabelSize(0.040,"XY");
+  gStyle->SetTitleSize(0.045,"XY");
+  gStyle->SetNumberContours(255);
+  TCanvas *cv = new TCanvas("cv","",2500,1800);
 
   //plot blueprint
   blueprint->GetXaxis()->SetRangeUser(0.0, 2.0);
   blueprint->GetYaxis()->SetRangeUser(0.0, 30000);
   blueprint->SetLineColor(kBlack);
+  blueprint->SetLineWidth(4);
   blueprint->Draw();
 
   //plot histograms
   for (int i=0; i<names_folders.size(); i++){
     histograms[i]->SetLineColor(colors[i]);
     histograms[i]->SetFillColorAlpha(colors[i], 0.25);
+    histograms[i]->SetLineWidth(4);
     histograms[i]->Draw("SAME");
   }
 
   //add legend
-  TLegend* leg = new TLegend(0.6,0.7,0.9,0.9); 
+  TLegend* leg = new TLegend(0.35,0.6,0.9,0.9);
+  leg->SetTextSize(0.028);
   leg->AddEntry(blueprint, "original ivm distribution", "l");
   for (int i=0; i<names_folders.size(); i++){
     leg->AddEntry(histograms[i],labels[i].c_str(),"l");
@@ -82,18 +98,21 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   cv->SaveAs(pngname.c_str());
 
   //again in logscale
-  TCanvas *cv2 = new TCanvas("cv2","log");
+  TCanvas *cv2 = new TCanvas("cv2","log",2500,1800);
   gPad->SetLogy();
 
   blueprint->SetMinimum(0.001);
   blueprint->GetXaxis()->SetRangeUser(0.0, 3.5);
   blueprint->GetYaxis()->SetRangeUser(0.001, 30000);
   blueprint->SetLineColor(kBlack);
+  blueprint->SetLineWidth(4);
+
   blueprint->Draw();
 
   for (int i=0; i<names_folders.size(); i++){
     histograms[i]->SetFillColorAlpha(colors[i], 0.25);
     histograms[i]->SetLineColor(colors[i]);
+    histograms[i]->SetLineWidth(4);
     histograms[i]->Draw("SAME");
   }
 
