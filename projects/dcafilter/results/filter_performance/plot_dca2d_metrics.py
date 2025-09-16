@@ -122,9 +122,11 @@ plt.savefig("results/2dcolorplot_Bratios.png", dpi=300)
 #PLOT efficiency:
 #efficiency = (Ng after cut)/(Ng before cut)
 
-efficiencies = np.zeros((12,12))
+efficiencies = np.zeros((11,11))
 for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
+    i-=1
+    j-=1
     efficiencies[i,j] = Ngvec[n]/Ng_0
 
 plt.figure(figsize=(8,6))
@@ -141,9 +143,11 @@ plt.savefig("results/2dcolorplot_efficiency.png", dpi=300)
 #PLOT rejection:
 #rejection = 1 - (Nb after cut)/(Nb before cut)
 
-rejections = np.zeros((12,12))
+rejections = np.zeros((11,11))
 for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
+    i-=1
+    j-=1
     rejections[i,j] = 1.0 -Nbvec[n]/Nb_0
 
 plt.figure(figsize=(8,6))
@@ -160,9 +164,11 @@ plt.savefig("results/2dcolorplot_rejection.png", dpi=300)
 #PLOT purity:
 #purity = (Ng after cut)/(Ng+Nb after cut)
 
-purities = np.zeros((12,12))
+purities = np.zeros((11,11))
 for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
+    i-=1
+    j-=1
     purities[i,j] = (Ngvec[n]/(Nbvec[n]+Ngvec[n]))
 
 plt.figure(figsize=(8,6))
@@ -179,9 +185,11 @@ plt.savefig("results/2dcolorplot_purity.png", dpi=300)
 #PLOT significance:
 #significance = (Ng after cut)/sqrt(Ng+Nb after cut)
 
-significances = np.zeros((12,12))
+significances = np.zeros((11,11))
 for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
+    i-=1
+    j-=1
     significances[i,j] = Ngvec[n]/math.sqrt(Nbvec[n]+Ngvec[n])
 
 plt.figure(figsize=(8,6))
