@@ -12,12 +12,13 @@
 //----------------------------------------------------------------------------------------
 
 //plotivmblueprint: plots the ivmhistogram and of ALL pion pion events
-void plotivmblueprint(TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
+void plotivmblueprint(double min, double max, TString fnconfig = "../../resources/ppHelpers/ppConfig.json"){
   
   //plot histogram
   TCanvas *cv = new TCanvas();
   TFile histofile("histo_ivmblueprint.root", "READ");
   TH1D* histo = static_cast<TH1D*>(histofile.Get("hs1d"));
+  histo->GetXaxis()->SetRangeUser(min,max);
   histo->Draw();
   cv->SaveAs("ivmblueprint.png");
   

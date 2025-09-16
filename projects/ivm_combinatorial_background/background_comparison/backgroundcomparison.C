@@ -67,7 +67,7 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   gStyle->SetLabelSize(0.040,"XY");
   gStyle->SetTitleSize(0.045,"XY");
   gStyle->SetNumberContours(255);
-  TCanvas *cv = new TCanvas("cv","",2500,1800);
+  TCanvas *cv = new TCanvas("cv","",2800,1800);
 
   //plot blueprint
   blueprint->GetXaxis()->SetRangeUser(0.0, 2.0);
@@ -98,7 +98,7 @@ void plotallhistos(TH1D* blueprint, std::vector<TH1D*> histograms){
   cv->SaveAs(pngname.c_str());
 
   //again in logscale
-  TCanvas *cv2 = new TCanvas("cv2","log",2500,1800);
+  TCanvas *cv2 = new TCanvas("cv2","log",2800,1800);
   gPad->SetLogy();
 
   blueprint->SetMinimum(0.001);
