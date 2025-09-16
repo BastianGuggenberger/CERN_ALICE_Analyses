@@ -65,8 +65,8 @@ std::array<double,2> get_stats(std::string folder){
   std::cout << ivmhisto->Integral() << std::endl;
   int minbin = ivmhisto->GetXaxis()->FindBin(kaonmass-3*meansigma);
   int maxbin = ivmhisto->GetXaxis()->FindBin(kaonmass+3*meansigma);
-  double Nb = ivmhisto->Integral(minbin,maxbin); //Nb: number of bad events (number of events in the K0 band)
-  double Ng = Ntotal-Nb; //Ng: number of good events (events outside the K0 mass band)
+  double Ng = ivmhisto->Integral(minbin,maxbin); //Ng: number of bad events (number of events in the K0 band)
+  double Nb = Ntotal-Ng; //Nb: number of good events (events outside the K0 mass band)
 
   std::array<double,2> stats = {Ng,Nb};
   return stats;

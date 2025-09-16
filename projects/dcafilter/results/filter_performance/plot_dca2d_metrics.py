@@ -148,7 +148,7 @@ for n in range(len(xyvec)):
     i, j = get_i_j(xyvec[n],zvec[n])
     i-=1
     j-=1
-    rejections[i,j] = 1.0 -Nbvec[n]/Nb_0
+    rejections[i,j] = 1.0 - Nbvec[n]/Nb_0
 
 plt.figure(figsize=(8,6))
 plt.imshow(rejections,cmap ="viridis", extent=[dcas[0],dcas[-1],dcas[0],dcas[-1]], origin="lower")
