@@ -14,10 +14,10 @@ email: bastian.guggenberger@aon.at
 ## LINUX:
 ```bash
 #1. clone repository:
-git clone https://github.com/BastianGuggenberger/Projektarbeit_SMI
+git clone https://github.com/BastianGuggenberger/CERN_ALICE_Analyses
 
 #2. navigate to project directory
-cd Projektarbeit_SMI/projects/dcafilter/macros
+cd CERN_ALICE_Analyses/projects/dcafilter/macros
 
 #3. install dependencies
 conda config --set channel_priority strict

@@ -42,10 +42,10 @@ Details on root and other installation methods can be found here: https://root.c
 
 ```bash
 #1. clone repository:
-git clone https://github.com/BastianGuggenberger/Projektarbeit_SMI
+git clone https://github.com/BastianGuggenberger/CERN_ALICE_Analyses
 
 #2. navigate to project directory
-cd Projektarbeit_SMI/projects/ivm_combinatorial_background
+cd CERN_ALICE_Analyses/projects/ivm_combinatorial_background
 
 #3. install dependencies
 conda config --set channel_priority strict
@@ -55,16 +55,16 @@ conda install -c conda-forge rapidjson
 conda install -c conda-forge numpy matplotlib
 ```
 
-After installation, navigate to "Projektarbeit_SMI/projects/resources/ppPaths.h" and set the right paths to the json and rootfiles files.  
+After installation, navigate to "CERN_ALICE_Analyses/projects/resources/ppPaths.h" and set the right paths to the json and rootfiles files.  
 
 Also the following files and scripts should be stored as shown (if the installation is done as described in the next section, this will by default be the case):  
-- ppHelpers.h: "Projektarbeit_SMI/projects/resources/ppHelpers/ppHelpers.h"  
-- ppBranchAssignment.h: "Projektarbeit_SMI/projects/resources/ppHelpers/ppBranchAssignment.h"  
-- ppDataItems.h: "Projektarbeit_SMI/projects/resources/ppHelpers/ppDataitems.h"  
-- ppDataitems.C: "Projektarbeit_SMI/projects/resources/ppHelpers/ppDataItems.C"  
-- ppConfig.json: "Projektarbeit_SMI/projects/resources/ppHelpers/ppConfig.json"  
-- ppPaths.h: "Projektarbeit_SMI/projects/resources/ppPaths.h"  
-- rootfiles.txt: "Projektarbeit_SMI/projects/resources/rootfiles.txt"  
+- ppHelpers.h: "CERN_ALICE_Analyses/projects/resources/ppHelpers/ppHelpers.h"  
+- ppBranchAssignment.h: "CERN_ALICE_Analyses/projects/resources/ppHelpers/ppBranchAssignment.h"  
+- ppDataItems.h: "CERN_ALICE_Analyses/projects/resources/ppHelpers/ppDataitems.h"  
+- ppDataitems.C: "CERN_ALICE_Analyses/projects/resources/ppHelpers/ppDataItems.C"  
+- ppConfig.json: "CERN_ALICE_Analyses/projects/resources/ppHelpers/ppConfig.json"  
+- ppPaths.h: "CERN_ALICE_Analyses/projects/resources/ppPaths.h"  
+- rootfiles.txt: "CERN_ALICE_Analyses/projects/resources/rootfiles.txt"  
 
 
 ## Support
