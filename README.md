@@ -69,3 +69,6 @@ Also the following files and scripts should be stored as shown (if the installat
 
 ## Support
 email: bastian.guggenberger@aon.at
+
+## License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE.txt) file for details.
