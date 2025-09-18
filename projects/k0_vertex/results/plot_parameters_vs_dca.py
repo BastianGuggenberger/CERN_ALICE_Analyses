@@ -12,22 +12,21 @@ with open("dcaplots/meanvswidth.csv") as f:
         meandict[rawline[0]].append(float(rawline[2]))
         widthdict[rawline[0]].append(float(rawline[3]))
 
+
+fig, ax1 = plt.subplots()
+ax1.set_xlabel("dcaxy")
+ax1.set_ylabel("mean vertex position")
 for i in range(4):
-    fig, ax1 = plt.subplots()
+    ax1.plot(dcadict[names[i]],meandict[names[i]],label=names[i])
+plt.legend()
 
-    label = "mean " + names[i]
-    ax1.plot(dcadict[names[i]],meandict[names[i]],label=label,color = "r")
-    ax1.set_ylabel(label)
-    ax1.set_xlabel("dcaxy")
-    ax1.yaxis.label.set_color("r")
+plt.savefig("dcaplots/meanvertexvsdca")
 
-    ax2 = ax1.twinx()
-    label = "width " + names[i]
-    ax2.plot(dcadict[names[i]],widthdict[names[i]],label=label,color = "b")
-    ax2.set_ylabel(label)
-    ax2.yaxis.label.set_color("b")
+fig2, ax2 = plt.subplots()
+ax2.set_xlabel("dcaxy")
+ax2.set_ylabel("vertex position width")
+for i in range(4):
+    ax2.plot(dcadict[names[i]],widthdict[names[i]],label=names[i])
+plt.legend()
 
-    fig.autofmt_xdate()
-    plt.tight_layout()
-
-    plt.savefig("dcaplots/"+names[i])
+plt.savefig("dcaplots/widthvertexvsdca")

@@ -39,6 +39,7 @@ void plotsingle(std::string name_folder, bool dim2 = false, TString fnconfig = "
     TCanvas *cv = new TCanvas("cv","",2400,1800);
     if(dim2){
       TH2D* histo = static_cast<TH2D*>(histofile.Get(histoname.c_str()));
+      gPad->SetLogz();
       histo->RebinX(10.);
       histo->RebinY(20.);
       histo->Draw("COLZ");
